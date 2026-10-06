@@ -87,7 +87,7 @@
             padding: 1.5rem 1rem;
             flex-shrink: 0;
             z-index: 20;
-            /* MODIFICADO: Fixa o menu na tela */
+            /* NOVO: Fixa o menu na tela */
             position: fixed;
             top: 0;
             left: 0;
@@ -238,6 +238,196 @@
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
+        }
+
+        /* Layout da configuracao de relatorios */
+        #reports-view {
+            padding: 1.5rem;
+        }
+        .reports-header {
+            margin-bottom: 1rem;
+        }
+        .reports-header-copy .section-title {
+            margin-bottom: 0;
+        }
+        .reports-filter-panel {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem 1.25rem;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        }
+        .reports-filter-heading {
+            margin-bottom: 1.15rem;
+            color: #1e293b;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .reports-filter-grid {
+            display: grid;
+            grid-template-columns: minmax(14rem, 1.35fr) minmax(15rem, 1.35fr) minmax(10rem, 0.85fr) minmax(9rem, 0.75fr) minmax(8.5rem, 0.75fr);
+            gap: 1.25rem;
+            align-items: end;
+        }
+        .reports-period-hint {
+            display: block;
+            margin-top: 0.35rem;
+            color: #64748b;
+            font-size: 0.75rem;
+        }
+        .reports-filter-actions {
+            display: flex;
+        }
+        .reports-filter-actions .button-base {
+            width: 100%;
+            min-height: 2.5rem;
+            justify-content: center;
+            padding: 0.6rem 0.85rem;
+            white-space: nowrap;
+        }
+        .reports-output {
+            margin-top: 1.75rem;
+        }
+        .reports-output-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .reports-output-header .subsection-title {
+            margin: 0;
+        }
+        .reports-export-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .reports-chart-panel,
+        .reports-table-panel {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+        }
+        .reports-chart-panel {
+            padding: 1rem;
+        }
+        .reports-table-panel {
+            overflow: hidden;
+        }
+        .reports-table-panel table thead th {
+            white-space: nowrap;
+            background: #f1f5f9;
+            color: #334155;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .reports-kpi-panel {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 0.85rem;
+        }
+        .reports-kpi-card {
+            min-width: 0;
+            padding: 0.85rem 1rem;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.65rem;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+        }
+        .reports-kpi-label {
+            overflow: hidden;
+            color: #475569;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .reports-kpi-main {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-top: 0.45rem;
+        }
+        .reports-kpi-value {
+            color: #1e293b;
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .reports-kpi-meta {
+            color: #64748b;
+            font-size: 0.68rem;
+            white-space: nowrap;
+        }
+        .reports-kpi-variation {
+            margin-top: 0.45rem;
+            color: #0f766e;
+            font-size: 0.68rem;
+            font-weight: 700;
+        }
+        body.dark .reports-kpi-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        body.dark .reports-kpi-label,
+        body.dark .reports-kpi-meta {
+            color: #94a3b8;
+        }
+        body.dark .reports-kpi-value {
+            color: #f8fafc;
+        }
+        @media (max-width: 1100px) {
+            .reports-filter-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .reports-filter-grid > :first-child {
+                grid-column: span 2;
+            }
+        }
+        @media (max-width: 640px) {
+            #reports-view {
+                padding: 1rem;
+            }
+            .reports-filter-grid {
+                grid-template-columns: 1fr;
+            }
+            .reports-filter-grid > :first-child {
+                grid-column: auto;
+            }
+            .reports-output-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+            .reports-kpi-panel {
+                grid-template-columns: 1fr;
+            }
+            .reports-export-actions {
+                width: 100%;
+            }
+            .reports-export-actions .button-base {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+        body.dark .reports-filter-panel,
+        body.dark .reports-chart-panel,
+        body.dark .reports-table-panel {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        body.dark .reports-filter-heading {
+            color: #f8fafc;
+        }
+        body.dark .reports-period-hint {
+            color: #94a3b8;
+        }
+        body.dark .reports-table-panel table thead th {
+            background: #334155;
+            color: #e2e8f0;
         }
         .modal {
             position: fixed;
@@ -629,59 +819,35 @@
             color: #ffffff;
             transform: scale(1.1);
         }
-
+        
         /* Media Queries para Responsividade */
         @media (max-width: 768px) {
             #sidebar {
-                z-index: 50; /* Garante que o menu fique sobre o conteúdo e o overlay */
                 position: fixed;
                 transform: translateX(-100%);
                 height: 100%;
             }
             #sidebar.open {
                 transform: translateX(0);
-                width: 280px; /* Um pouco mais largo para melhor toque */
+                width: 250px;
             }
             #main-content {
-                margin-left: 0; /* Remove a margem do menu em telas pequenas */
                 padding: 1rem;
-            }
-            #pin-sidebar-btn {
-                display: none; /* Oculta o botão de fixar em mobile */
             }
             .grid {
                 grid-template-columns: 1fr;
             }
-            /* Ajusta o tamanho das fontes para melhor leitura */
             .kpi-value {
                 font-size: 1.5rem !important;
             }
             .efficiency-value {
                 font-size: 3rem !important;
             }
-            .section-title {
-                font-size: 1.3rem;
-            }
             #page-title {
                 font-size: 1.5rem;
             }
-            /* Exibe o botão de menu hamburguer */
             #hamburger-btn {
                 display: block;
-            }
-            /* Reduz o padding dos cards para economizar espaço */
-            .card, .page-content.card {
-                padding: 1rem;
-            }
-            /* Desativa o efeito de hover que não funciona em toque */
-            .kpi-card:hover {
-                transform: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #userIdDisplay {
-                display: none; /* Esconde o email do usuário em telas muito pequenas */
             }
         }
 
@@ -696,8 +862,6 @@
 <body>
     <!-- Overlays and Notifications -->
     <div id="loadingOverlay"><div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-700 mr-3"></div>Carregando...</div>
-    <!-- NOVO: Overlay para o menu mobile -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden"></div>
     <div id="toast-container"></div>
     <div id="confirmAlertDialog" class="modal">
         <div class="modal-content">
@@ -771,29 +935,6 @@
             <div id="entryPreviewContent" class="overflow-y-auto max-h-[70vh]"></div>
         </div>
     </div>
-    <!-- Order Tracking Modal -->
-    <div id="orderTrackingModal" class="modal">
-        <div class="modal-content">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold">Atualizar Status Logístico</h3>
-                <button class="close-modal-btn text-2xl font-bold">&times;</button>
-            </div>
-            <form id="order-tracking-form">
-                <input type="hidden" id="trackingOrderId">
-                <div id="orderTrackingContent" class="space-y-4 mb-4 max-h-[60vh] overflow-y-auto"></div>
-                <div class="border-t pt-4 mt-4">
-                    <h4 class="font-bold mb-2">Status do Pedido</h4>
-                    <div class="flex gap-4">
-                        <label class="flex items-center gap-2"><input type="checkbox" id="tracking-expedido-checkbox"> Pedido Expedido</label>
-                        <label class="flex items-center gap-2"><input type="checkbox" id="tracking-entregue-checkbox"> Pedido Entregue</label>
-                    </div>
-                </div>
-                <div class="text-right mt-6">
-                    <button type="submit" class="button-base bg-blue-600 hover:bg-blue-700">Salvar Alterações</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <!-- NOVO: Página de Login -->
     <div id="login-page" class="hidden">
@@ -805,7 +946,7 @@
                 <div class="absolute -bottom-[10%] left-[20%] w-[30%] h-[30%] rounded-full bg-teal-600/20 blur-[100px]"></div>
             </div>
 
-            <div class="max-w-md w-full space-y-8 bg-white/90 backdrop-blur-lg p-6 sm:p-8 rounded-2xl shadow-2xl z-10 border border-white/20">
+            <div class="max-w-md w-full space-y-8 bg-white/90 backdrop-blur-lg p-8 rounded-2xl shadow-2xl z-10 border border-white/20">
                 <div class="text-center">
                     <div class="mx-auto h-20 w-20 bg-white rounded-2xl shadow-lg flex items-center justify-center mb-6">
                         <img class="h-12 w-auto" src="https://flexmaker.vagas.solides.com.br/_next/image?url=https%3A%2F%2Fc5gwmsmjx1.execute-api.us-east-1.amazonaws.com%2Fprod%2Fdados_processo_seletivo%2Flogo_empresa%2F126109%2FLOGO_PADRAO-removebg-preview.png_name_20221207-21107-1g87qou.png&w=828&q=100" alt="Flex Maker Logo">
@@ -874,7 +1015,6 @@
                 <button data-page="all-entries-view" class="nav-button only-admin"><i class="fas fa-tasks"></i><span class="nav-button-text">Gerenciar</span></button>
                 <button data-page="product-registration-view" class="nav-button only-admin"><i class="fas fa-box-open"></i><span class="nav-button-text">Produtos</span></button>
                 <button data-page="reports-view" class="nav-button"><i class="fas fa-file-alt"></i><span class="nav-button-text">Relatórios</span></button>
-                <button data-page="orders-view" class="nav-button only-admin-operator"><i class="fas fa-shipping-fast"></i><span class="nav-button-text">Pedidos</span></button>
             </nav>
             <!-- NOVO: Rodapé do Sidebar com botão de fixar -->
             <nav class="mt-auto">
@@ -1383,17 +1523,20 @@
                         </div>
                     </div>
                     <div id="reports-view" class="page-content card">
-                        <div class="text-center mb-8">
+                        <div class="reports-header">
+                            <div class="reports-header-copy">
                             <h2 class="section-title">Relatórios Avançados</h2>
                             <p class="text-md text-slate-500">Exporte dados consolidados para análises detalhadas.</p>
+                            </div>
                         </div>
-                        <div class="card bg-gray-50">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-end">
+                        <div class="reports-filter-panel">
+                            <div class="reports-filter-heading">Configuração do Relatório</div>
+                            <div class="reports-filter-grid">
                                 <div class="input-group">
                                     <label for="report-type">Tipo de Relatório:</label>
                                     <select id="report-type">
                                         <option value="director-report">Relatório Diretoria (Executivo)</option>
-                                        <option value="monthly-summary">Resumo Mensal por Linha</option>
+                                        <option value="monthly-summary">Resumo por Linha</option>
                                         <option value="period-comparison">Comparativo de Períodos</option>
                                         <option value="product-performance">Performance de Produto</option>
                                         <option value="daily-product-run">Produto por Dia</option>
@@ -1401,10 +1544,8 @@
                                     </select>
                                 </div>
                                 <div class="input-group">
-                                    <label for="report-month">Mês/Período:</label>
-                                    <input type="month" id="report-month">
                                     <label for="report-date-range">Período:</label>
-                                    <input type="text" id="report-date-range" placeholder="Selecione o período">
+                                    <input type="text" id="report-date-range" placeholder="Selecione o período" aria-label="Período do relatório">
                                 </div>
                                 <div class="input-group">
                                     <label for="report-line-filter">Linha de Produção:</label>
@@ -1418,8 +1559,8 @@
                                         <option value="all">Todos os Grupos</option>
                                     </select>
                                 </div>
-                                <div class="md:col-span-2 lg:col-span-1 flex items-end">
-                                    <button id="generate-report-btn" class="button-base bg-slate-800 hover:bg-slate-700 h-10 w-full">Gerar Relatório</button>
+                                <div class="reports-filter-actions">
+                                    <button id="generate-report-btn" class="button-base bg-slate-800 hover:bg-slate-700"><i class="fas fa-chart-line"></i> Gerar Relatório</button>
                                 </div>
                             </div>
                             <!-- Filtros específicos para Performance de Produto -->
@@ -1437,192 +1578,50 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="report-output-container" class="mt-8" style="display: none;">
-                            <div class="flex justify-between items-center mb-4">
+                        <div id="report-output-container" class="reports-output" style="display: none;">
+                            <div class="reports-output-header">
                                 <h3 id="report-title" class="subsection-title"></h3>
-                                <div>
+                                <div class="reports-export-actions">
                                     <button id="export-report-csv-btn" class="button-base bg-teal-600 hover:bg-teal-700"><i class="fas fa-file-csv"></i> Exportar CSV</button>
                                     <button id="export-report-pdf-btn" class="button-base bg-red-500 hover:bg-red-600"><i class="fas fa-file-pdf"></i> Exportar PDF</button>
                                 </div>
                             </div>
-                            <div class="card my-6">
+                            <div id="reports-kpi-panel" class="reports-kpi-panel" style="display: none;">
+                                <div class="reports-kpi-card">
+                                    <div class="reports-kpi-label">Produção (Qtd)</div>
+                                    <div class="reports-kpi-main">
+                                        <strong id="report-kpi-production" class="reports-kpi-value">0</strong>
+                                        <span id="report-kpi-production-meta" class="reports-kpi-meta">0 programado</span>
+                                    </div>
+                                    <div id="report-kpi-production-variation" class="reports-kpi-variation">0,00% de eficiência</div>
+                                </div>
+                                <div class="reports-kpi-card">
+                                    <div class="reports-kpi-label">Headcount (Pessoas)</div>
+                                    <div class="reports-kpi-main">
+                                        <strong id="report-kpi-headcount" class="reports-kpi-value">0</strong>
+                                        <span id="report-kpi-headcount-meta" class="reports-kpi-meta">0 programado</span>
+                                    </div>
+                                    <div id="report-kpi-headcount-variation" class="reports-kpi-variation">0,00% de eficiência</div>
+                                </div>
+                                <div class="reports-kpi-card">
+                                    <div class="reports-kpi-label">Custo/Peça (R$)</div>
+                                    <div class="reports-kpi-main">
+                                        <strong id="report-kpi-cost" class="reports-kpi-value">R$ 0,00</strong>
+                                        <span id="report-kpi-cost-meta" class="reports-kpi-meta">Programado: R$ 0,00</span>
+                                    </div>
+                                    <div id="report-kpi-cost-variation" class="reports-kpi-variation">Variação: 0,00%</div>
+                                </div>
+                            </div>
+                            <div class="reports-chart-panel my-6">
                                 <div class="relative h-96">
                                     <canvas id="report-chart"></canvas>
                                 </div>
                             </div>
-                            <div class="table-container overflow-x-auto">
+                            <div class="reports-table-panel table-container overflow-x-auto">
                                 <table id="report-table" class="w-full">
                                     <thead></thead>
                                     <tbody></tbody>
                                 </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ================================================================== -->
-                    <!-- NOVO: MÓDULO DE PEDIDOS                                              -->
-                    <!-- ================================================================== -->
-                    <div id="orders-view" class="page-content card">
-                        <!-- Navegação Interna do Módulo de Pedidos -->
-                        <div id="orders-nav" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                            <div data-section="orders-dashboard-section" class="order-nav-card active-order-nav-card p-4 rounded-lg shadow-md cursor-pointer text-center bg-blue-100 border-2 border-blue-500">
-                                <i class="fas fa-chart-pie text-2xl text-blue-600 mb-2"></i>
-                                <h4 class="font-bold text-blue-800">Dashboard</h4>
-                            </div>
-                            <div data-section="orders-entry-section" class="order-nav-card p-4 rounded-lg shadow-md cursor-pointer text-center bg-gray-50 hover:bg-gray-100">
-                                <i class="fas fa-plus-circle text-2xl text-gray-600 mb-2"></i>
-                                <h4 class="font-bold text-gray-800">Lançamento</h4>
-                            </div>
-                            <div data-section="orders-tracking-section" class="order-nav-card p-4 rounded-lg shadow-md cursor-pointer text-center bg-gray-50 hover:bg-gray-100">
-                                <i class="fas fa-truck text-2xl text-gray-600 mb-2"></i>
-                                <h4 class="font-bold text-gray-800">Acompanhamento</h4>
-                            </div>
-                            <div data-section="orders-db-section" class="order-nav-card p-4 rounded-lg shadow-md cursor-pointer text-center bg-gray-50 hover:bg-gray-100">
-                                <i class="fas fa-database text-2xl text-gray-600 mb-2"></i>
-                                <h4 class="font-bold text-gray-800">Banco de Dados</h4>
-                            </div>
-                        </div>
-
-                        <!-- Seção: Dashboard de Pedidos -->
-                        <div id="orders-dashboard-section" class="orders-section">
-                            <h3 class="subsection-title">Dashboard de Pedidos</h3>
-                            
-                            <!-- Filtro de Data Exclusivo -->
-                            <div class="card mb-6 p-4">
-                                <div class="input-group max-w-md">
-                                    <label for="orders-dashboard-date-range"><i class="fas fa-calendar-alt mr-2"></i>Período de Análise:</label>
-                                    <input type="text" id="orders-dashboard-date-range" placeholder="Selecione o período">
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                                <div class="kpi-card bg-white border-l-4 border-blue-500 cursor-pointer" data-filter="total"><h4 class="kpi-card-title">Total de Pedidos</h4><p id="kpi-total-pedidos" class="text-3xl font-bold text-gray-800">0</p></div>
-                                <div class="kpi-card bg-white border-l-4 border-green-500 cursor-pointer" data-filter="faturamento"><h4 class="kpi-card-title">Faturamento Realizado</h4><p id="kpi-valor-total" class="text-3xl font-bold text-gray-800"></p></div>
-                                <div class="kpi-card bg-white border-l-4 border-purple-500"><h4 class="kpi-card-title">Previsão Fechamento</h4><p id="kpi-forecast" class="text-3xl font-bold text-gray-800"></p></div>
-                                <div class="kpi-card bg-white border-l-4 border-red-500 cursor-pointer" data-filter="atrasado"><h4 class="kpi-card-title">Pedidos Atrasados</h4><p id="kpi-pedidos-atraso" class="text-3xl font-bold text-red-600">0</p></div>
-                            </div>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                                <div class="kpi-card bg-white border-l-4 border-teal-500"><h4 class="kpi-card-title">Ticket Médio</h4><p id="kpi-ticket-medio" class="text-3xl font-bold text-gray-800"></p></div>
-                                <div class="kpi-card bg-white border-l-4 border-indigo-500"><h4 class="kpi-card-title">OTIF (Prazo)</h4><p id="kpi-otif" class="text-3xl font-bold text-gray-800">0%</p></div>
-                                <div class="kpi-card bg-white border-l-4 border-yellow-500 cursor-pointer" data-filter="aberto"><h4 class="kpi-card-title">Em Aberto (Carteira)</h4><p id="kpi-carteira" class="text-3xl font-bold text-gray-800"></p></div>
-                                <div class="kpi-card bg-white border-l-4 border-gray-500 cursor-pointer" data-filter="entregue"><h4 class="kpi-card-title">Entregues</h4><p id="kpi-entregues-qtd" class="text-3xl font-bold text-gray-800">0</p></div>
-                            </div>
-
-                            <!-- Gráficos -->
-                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                                <div class="card lg:col-span-2">
-                                    <h4 class="font-bold mb-4 text-center">Tendência de Vendas (Diário)</h4>
-                                    <div class="relative h-64"><canvas id="ordersTrendChart"></canvas></div>
-                                </div>
-                                <div class="card">
-                                    <h4 class="font-bold mb-4 text-center">Status dos Pedidos</h4>
-                                    <div class="relative h-64"><canvas id="ordersStatusChart"></canvas></div>
-                                </div>
-                                <div class="card">
-                                    <h4 class="font-bold mb-4 text-center">Top 10 Clientes (Volume R$)</h4>
-                                    <div class="relative h-64"><canvas id="ordersClientChart"></canvas></div>
-                                </div>
-                                <div class="card">
-                                    <h4 class="font-bold mb-4 text-center">Destino das Vendas (Localização)</h4>
-                                    <div class="relative h-64"><canvas id="ordersLocationChart"></canvas></div>
-                                </div>
-                                <div class="card">
-                                    <h4 class="font-bold mb-4 text-center">Aging de Pedidos em Aberto (Dias)</h4>
-                                    <div class="relative h-64"><canvas id="ordersAgingChart"></canvas></div>
-                                </div>
-                            </div>
-
-                            <div class="flex justify-between items-center mt-8 mb-4">
-                                <h3 id="orders-table-title" class="subsection-title mb-0">Detalhes dos Pedidos (Top Atrasos)</h3>
-                                <button id="export-orders-drilldown-btn" class="button-base bg-green-600 hover:bg-green-700 text-sm py-2 px-4"><i class="fas fa-file-excel mr-2"></i>Exportar Excel</button>
-                            </div>
-                            <div id="orders-drilldown-container" class="table-container overflow-x-auto">
-                                <!-- Tabela será gerada aqui -->
-                            </div>
-                        </div>
-
-                        <!-- Seção: Lançamento de Pedido -->
-                        <div id="orders-entry-section" class="orders-section" style="display: none;">
-                            <h3 class="subsection-title">Lançamento de Pedido</h3>
-                            <div class="flex justify-end mb-4">
-                                <button id="import-orders-btn" class="button-base bg-teal-600 hover:bg-teal-700"><i class="fas fa-file-excel mr-2"></i>Importar via Excel</button>
-                                <input type="file" id="order-import-file" class="hidden" accept=".xlsx, .csv">
-                            </div>
-                            <form id="order-entry-form">
-                                <input type="hidden" id="order-form-doc-id">
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                                    <div class="input-group"><label for="order-pv">PV (Pedido de Venda)</label><input type="text" id="order-pv" required></div>
-                                    <div class="input-group"><label for="order-cliente">Cliente</label><input type="text" id="order-cliente" required></div>
-                                    <div class="input-group"><label for="order-data-entrega">Data de Entrega</label><input type="date" id="order-data-entrega" required></div>
-                                    <div class="input-group"><label for="order-local">Local (Cidade/Estado)</label><input type="text" id="order-local"></div>
-                                    <div class="input-group"><label for="order-prioridade">Prioridade</label><select id="order-prioridade"><option>Normal</option><option>Alta</option><option>Urgente</option></select></div>
-                                </div>
-                                <h4 class="font-bold mb-2">Itens do Pedido</h4>
-                                <div id="order-items-container" class="space-y-4 mb-4">
-                                    <!-- Itens dinâmicos serão adicionados aqui -->
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <button id="add-order-item-btn" type="button" class="button-base bg-blue-500 hover:bg-blue-600"><i class="fas fa-plus mr-2"></i>Adicionar Item</button>
-                                    <div class="text-right">
-                                        <span class="text-lg font-semibold">Valor Total do Pedido:</span>
-                                        <span id="order-total-value" class="text-2xl font-bold ml-2"></span>
-                                    </div>
-                                </div>
-                                <div class="text-center mt-8">
-                                    <button type="submit" class="button-base bg-green-600 hover:bg-green-700">Salvar Pedido</button>
-                                    <button id="clear-order-form-btn" type="button" class="button-base bg-slate-500 hover:bg-slate-600">Limpar Formulário</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Seção: Acompanhamento Logístico -->
-                        <div id="orders-tracking-section" class="orders-section" style="display: none;">
-                            <h3 class="subsection-title">Acompanhamento Logístico</h3>
-                            <div class="table-container overflow-x-auto">
-                                <table id="orders-tracking-table" class="w-full">
-                                    <thead>
-                                        <tr class="bg-gray-100">
-                                            <th class="p-2 text-left">PV</th>
-                                            <th class="p-2 text-left">Cliente</th>
-                                            <th class="p-2 text-left">Status</th>
-                                            <th class="p-2 text-center">Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- Seção: Banco de Dados de Pedidos -->
-                        <div id="orders-db-section" class="orders-section" style="display: none;">
-                            <h3 class="subsection-title">Banco de Dados de Pedidos</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                            <div class="input-group">
-                                <label for="db-client-filter">Filtrar por Cliente</label>
-                                <input type="text" id="db-client-filter" placeholder="Nome do Cliente">
-                            </div>
-                            <div class="input-group flex items-end">
-                                <button id="db-search-btn" class="button-base bg-blue-600 hover:bg-blue-700 w-full"><i class="fas fa-search mr-2"></i>Buscar</button>
-                            </div>
-                        </div>
-                            <div class="table-container overflow-x-auto">
-                                <table id="orders-db-table" class="w-full">
-                                    <thead>
-                                        <tr class="bg-gray-100">
-                                            <th class="p-2 text-left">PV</th>
-                                            <th class="p-2 text-left">Cliente</th>
-                                            <th class="p-2 text-right">Valor Total</th>
-                                            <th class="p-2 text-left">Status</th>
-                                            <th class="p-2 text-center">Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                        </div>
-                        <div class="flex justify-between items-center mt-4">
-                            <button id="db-prev-btn" class="button-base bg-slate-500 hover:bg-slate-600 disabled:opacity-50" disabled><i class="fas fa-chevron-left"></i> Anterior</button>
-                            <span id="db-page-info" class="font-semibold">Página 1</span>
-                            <button id="db-next-btn" class="button-base bg-slate-500 hover:bg-slate-600 disabled:opacity-50">Próximo <i class="fas fa-chevron-right"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1646,17 +1645,25 @@
             isRsiFilterProgrammatic: false,
             entries: [],
             initializedModules: {},
-            orders: [], // NOVO: Estado para os pedidos
             unsubscribes: [] // Armazena funções para cancelar listeners do Firestore
         };
         
+        // SEGURANÇA: Função para prevenir Cross-Site Scripting (XSS)
+        // Usa-se isso ao renderizar qualquer dado vindo do banco de dados em innerHTML
+        const escapeHtml = (unsafe) => {
+            if (unsafe === null || unsafe === undefined) return '';
+            return String(unsafe)
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        };
+
         // CONFIGURAÇÃO CENTRALIZADA
         // Use este objeto para gerenciar as opções de listas em todo o sistema
         const APP_CONFIG = {
             SECTORS: ['DESCARTAVEIS', 'CIRURGICO', 'AUTOMOTIVO', 'LOGISTICA', 'Repack de caixa', 'Pré processo'],
             LINES: [
                 'Automotivo', 'Enfesto automotivo', 'Descartáveis', 'Cirúrgico', 
-                'Repack', 'Repack de Caixa', 'Pré processo', 
+                'Repack', 'Repack de Caixa', 'Pré processo', 'Extra', 
                 'Enfesto saude', 'Maquina de manga'
             ],
             IMPRODUTIVO_SECTORS: ['RH', 'PCP', 'LOGISTICA', 'ALMOXARIFADO', 'MANUTENÇÃO', 'QUALIDADE', 'DESENVOLVIMENTO', 'EXTERNO', 'PRODUÇÃO', 'PRODUÇÃO/PCP']
@@ -1741,11 +1748,8 @@
                         case 'reports-view':
                             setupReportsModule(db, state);
                             break;
-                    case 'orders-view':
-                        setupOrdersModule(db, state);
-                        break;
-                }
-                state.initializedModules[pageId] = true;
+                    }
+                    state.initializedModules[pageId] = true;
                 } catch (error) {
                     console.error("⚠️ Erro ao inicializar módulo de " + pageId + ":", error);
                     showToast(`Erro ao inicializar módulo: ${error.message}`, 'error');
@@ -1758,35 +1762,22 @@
                 renderManageTable(); // Correto para a página de gerenciamento
             } else if (pageId === 'daily-entry' && typeof renderDailyEntries === 'function') {
                 renderDailyEntries();
-            } else if (pageId === 'orders-view') {
-                if (state.refreshOrdersView) state.refreshOrdersView();
             }
         }
 
         function setupNavigation() {
-            const sidebar = document.getElementById('sidebar');
-            const mainNav = document.getElementById('main-nav');
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-            const mobileOverlay = document.getElementById('mobile-overlay');
-
-            const toggleMobileMenu = () => {
-                sidebar.classList.toggle('open');
-                mobileOverlay.classList.toggle('hidden');
-            };
-
-            mainNav.addEventListener('click', (e) => {
+            document.getElementById('main-nav').addEventListener('click', (e) => {
                 const button = e.target.closest('.nav-button');
                 if (button && button.dataset.page) {
                     showPage(button.dataset.page);
-                    // Fecha o menu mobile após a seleção
-                    if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
-                        toggleMobileMenu();
-                    }
                 }
             });
             
-            hamburgerBtn.addEventListener('click', toggleMobileMenu);
-            mobileOverlay.addEventListener('click', toggleMobileMenu);
+            const sidebar = document.getElementById('sidebar');
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            hamburgerBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
         }
         
         function showToast(message, type = 'info') {
@@ -1863,23 +1854,23 @@
                 </div>
                 <div class="input-group">
                     <label>Custo Unitário (R$):</label>
-                    <input type="number" class="mt-1 productUnitCost" step="0.01" placeholder="0.00" value="${product.unitCost || ''}" readonly>
+                    <input type="number" class="mt-1 productUnitCost" step="0.01" placeholder="0.00" value="${escapeHtml(product.unitCost)}" readonly>
                 </div>
                 <div class="input-group">
                     <label>Quantidade Programada:</label>
-                    <input type="number" class="mt-1 productProgrammedQty" placeholder="0" value="${product.programmedQty || ''}">
+                    <input type="number" class="mt-1 productProgrammedQty" placeholder="0" value="${escapeHtml(product.programmedQty)}">
                 </div>
                 <div class="input-group">
                     <label>Quantidade Realizada:</label>
-                    <input type="number" class="mt-1 productRealizedQty" placeholder="0" value="${product.realizedQty || ''}">
+                    <input type="number" class="mt-1 productRealizedQty" placeholder="0" value="${escapeHtml(product.realizedQty)}">
                 </div>
                 <div class="input-group">
                     <label>Qtd. Reprovada (Refugo):</label>
-                    <input type="number" class="mt-1 productRejectedQty" placeholder="0" value="${product.rejectedQty || ''}">
+                    <input type="number" class="mt-1 productRejectedQty" placeholder="0" value="${escapeHtml(product.rejectedQty)}">
                 </div>
                 <div class="input-group md:col-span-3">
                     <label>Qtd. para Retrabalho:</label>
-                    <input type="number" class="mt-1 productReworkQty" placeholder="0" value="${product.reworkQty || ''}">
+                    <input type="number" class="mt-1 productReworkQty" placeholder="0" value="${escapeHtml(product.reworkQty)}">
                 </div>
             `;
             productEntriesContainer.appendChild(groupDiv);
@@ -1896,7 +1887,7 @@
                 
                 <div class="input-group md:col-span-2">
                     <label>Ocorrência (Descritivo):</label>
-                    <input type="text" class="mt-1 improdutivoOccurrence" placeholder="Ex: Quebra de máquina" value="${imp.occurrence || ''}">
+                    <input type="text" class="mt-1 improdutivoOccurrence" placeholder="Ex: Quebra de máquina" value="${escapeHtml(imp.occurrence)}">
                 </div>
                 <div class="input-group">
                     <label>Setor Responsável:</label>
@@ -1914,23 +1905,23 @@
                 </div>
                 <div class="input-group improdutivo-minutes-group">
                     <label>Minutos de Parada:</label>
-                    <input type="number" class="mt-1 improdutivoMinutes" placeholder="Ex: 60" value="${imp.minutes || ''}">
+                    <input type="number" class="mt-1 improdutivoMinutes" placeholder="Ex: 60" value="${escapeHtml(imp.minutes)}">
                 </div>
                 <div class="input-group improdutivo-cost-group" style="display: none;">
                     <label>Custo Adicional (R$):</label>
-                    <input type="number" class="mt-1 improdutivoAdditionalCost" step="0.01" placeholder="Ex: 150.00" value="${imp.additionalCost || ''}">
+                    <input type="number" class="mt-1 improdutivoAdditionalCost" step="0.01" placeholder="Ex: 150.00" value="${escapeHtml(imp.additionalCost)}">
                 </div>
                 <div class="input-group md:col-span-2">
                     <label>Plano Emergencial (Ação imediata):</label>
-                    <textarea class="mt-1 improdutivoEmergencyPlan" placeholder="O que foi feito para diminuir o impacto...">${imp.emergencyPlan || ''}</textarea>
+                    <textarea class="mt-1 improdutivoEmergencyPlan" placeholder="O que foi feito para diminuir o impacto...">${escapeHtml(imp.emergencyPlan)}</textarea>
                 </div>
                 <div class="input-group md:col-span-2">
                     <label>Plano de Ação (Ação corretiva):</label>
-                    <textarea class="mt-1 improdutivoActionPlan" placeholder="O que será feito para que não ocorra mais...">${imp.actionPlan || ''}</textarea>
+                    <textarea class="mt-1 improdutivoActionPlan" placeholder="O que será feito para que não ocorra mais...">${escapeHtml(imp.actionPlan)}</textarea>
                 </div>
                 <div class="input-group md:col-span-2">
                     <label>Prazo para Plano de Ação:</label>
-                    <input type="date" class="mt-1 improdutivoDeadline" value="${imp.deadline || ''}">
+                    <input type="date" class="mt-1 improdutivoDeadline" value="${escapeHtml(imp.deadline)}">
                 </div>
              `;
              improdutivosContainer.appendChild(groupDiv);
@@ -2360,6 +2351,9 @@
                             <td class="p-2 border-t">${product.itemCode}</td>
                             <td class="p-2 border-t">${product.sector}</td>
                             <td class="p-2 border-t">${entry.lineName}</td>
+                            <td class="p-2 border-t">${escapeHtml(product.itemCode)}</td>
+                            <td class="p-2 border-t">${escapeHtml(product.sector)}</td>
+                            <td class="p-2 border-t">${escapeHtml(entry.lineName)}</td>
                             <td class="p-2 border-t text-right">${product.programmedQty}</td>
                             <td class="p-2 border-t text-right">${product.realizedQty}</td>
                             <td class="p-2 border-t text-center">
@@ -2879,11 +2873,6 @@
                 renderDashboard();
                 showToast('Filtros limpos.', 'info');
             });
-
-            // CORREÇÃO: Garante que os filtros sejam populados se os dados já existirem ao carregar o módulo
-            if (state.entries && state.entries.length > 0) {
-                populateDashboardFilters(state.entries);
-            }
         }
 
         // Helper para carregar imagem em base64 para o PDF
@@ -2970,8 +2959,6 @@
             if (!dashboardDatepicker) {
                 console.warn("Dashboard datepicker não inicializado. Retornando dados sem filtro de data para evitar erro.");
                 return state.entries; // Retorna todos os dados para evitar o crash. A UI se corrigirá na próxima renderização.
-                // Retorna array vazio ou espera inicialização, mas não retorna TUDO para não poluir a tela inicial
-                return []; 
             }
 
             const startDate = dashboardDatepicker.getStartDate() ? dashboardDatepicker.getStartDate().toJSDate().toISOString().split('T')[0] : null;
@@ -3013,7 +3000,7 @@
             });
         }
 
-        function calculateDashboardKPIs(filteredEntries) {
+        function calculateDashboardKPIs(filteredEntries, filterOverrides = null) {
             let totalProdProgramado = 0, totalProdRealizado = 0;
             let totalFaturamentoProgramado = 0, totalFaturamentoRealizado = 0;
             let totalHcProgramado = 0, totalHcRealizado = 0;
@@ -3027,9 +3014,14 @@
             const dailyData = {};
             const downtimeData = {};
             const costByDayAndLine = {};
-            const sector = document.getElementById('dashboardSectorFilter').value;
-            const item = document.getElementById('dashboardItemFilter').value.toUpperCase();
-            const line = document.querySelector('#dashboardLineFilterButtons .active')?.dataset.line || 'Todos';
+            const dashboardFilters = filterOverrides || {
+                sector: document.getElementById('dashboardSectorFilter').value,
+                item: document.getElementById('dashboardItemFilter').value.toUpperCase(),
+                line: document.querySelector('#dashboardLineFilterButtons .active')?.dataset.line || 'Todos'
+            };
+            const sector = dashboardFilters.sector || 'Todos';
+            const item = (dashboardFilters.item || '').toUpperCase();
+            const line = dashboardFilters.line || 'Todos';
 
             // NOVO: Calcular eficiência do período anterior para comparação
             const currentStartDate = dashboardDatepicker?.getStartDate()?.toJSDate();
@@ -3385,10 +3377,14 @@
                         <td class="p-2">${formatDate(imp.date)}</td>
                         <td class="p-2">${imp.occurrence}</td>
                         <td class="p-2">${imp.sector}</td>
+                        <td class="p-2">${escapeHtml(imp.occurrence)}</td>
+                        <td class="p-2">${escapeHtml(imp.sector)}</td>
                         <td class="p-2 text-right">${(imp.impactType === 'Custo Adicional') ? 'N/A' : (imp.minutes || 0)}</td>
                         <td class="p-2 text-right text-red-600 font-bold">${formatCurrency(custoAlocado)}</td>
                         <td class="p-2">${imp.emergencyPlan || ''}</td>
                         <td class="p-2">${imp.actionPlan || ''}</td>
+                        <td class="p-2">${escapeHtml(imp.emergencyPlan || '')}</td>
+                        <td class="p-2">${escapeHtml(imp.actionPlan || '')}</td>
                         <td class="p-2">${imp.deadline ? formatDate(imp.deadline) : ''}</td>
                         <td class="p-2">${statusCellHTML}</td>
                     `;
@@ -3422,7 +3418,7 @@
                 tableHTML += `<tr class="border-t">`;
                 headers.forEach(h => {
                     const key = h.toLowerCase().replace(/ /g, '_').replace('(%)','').replace('(min)','').trim();
-                    tableHTML += `<td class="p-2">${row[key] || ''}</td>`;
+                    tableHTML += `<td class="p-2">${escapeHtml(row[key])}</td>`;
                 });
                 tableHTML += `</tr>`;
             });
@@ -3470,9 +3466,9 @@
                             if (imp.sector === sectorLabel) {
                                 details.push({
                                     data: formatDate(entry.date),
-                                    ocorrência: imp.occurrence,
+                                    ocorrencia: imp.occurrence,
                                     tempo_min: imp.minutes,
-                                    plano_de_ação: imp.actionPlan
+                                    plano_de_acao: imp.actionPlan
                                 });
                             }
                         });
@@ -3917,6 +3913,9 @@
                     <td class="p-2 border-t">${item.lineName}</td>
                     <td class="p-2 border-t">${item.itemCode}</td>
                     <td class="p-2 border-t">${item.sector}</td>
+                    <td class="p-2 border-t">${escapeHtml(item.lineName)}</td>
+                    <td class="p-2 border-t">${escapeHtml(item.itemCode)}</td>
+                    <td class="p-2 border-t">${escapeHtml(item.sector)}</td>
                     <td class="p-2 border-t text-right">${item.programmedQty}</td>
                     <td class="p-2 border-t text-right">${item.realizedQty}</td>
                     <td class="p-2 border-t text-right">${item.efficiency.toFixed(2)}%</td>
@@ -4174,7 +4173,7 @@
 
             const lineFilter = document.getElementById('report-line-filter');
             const groupFilter = document.getElementById('report-group-filter');
-            const uniqueLines = [...new Set(state.entries.map(e => e.lineName).filter(Boolean))].sort();
+            const uniqueLines = [...new Set(state.entries.map(e => normalizeReportLineName(e.lineName)).filter(Boolean))].sort();
             uniqueLines.forEach(line => {
                 lineFilter.innerHTML += `<option value="${line}">${line}</option>`;
             });
@@ -4206,6 +4205,64 @@
 
             productSearchInput.addEventListener('keyup', renderReport);
             productSortSelect.addEventListener('change', renderReport);
+
+            function getReportDateRange() {
+                if (!reportDatepicker) return { startDate: null, endDate: null };
+                const startDate = reportDatepicker.getStartDate()?.toJSDate();
+                const endDate = reportDatepicker.getEndDate()?.toJSDate();
+                return {
+                    startDate: startDate ? startDate.toISOString().split('T')[0] : null,
+                    endDate: endDate ? endDate.toISOString().split('T')[0] : null
+                };
+            }
+
+            function showReportOutput(title, showChart = true) {
+                const outputContainer = document.getElementById('report-output-container');
+                const chartContainer = document.getElementById('report-chart').parentElement;
+                const kpiPanel = document.getElementById('reports-kpi-panel');
+                const titleEl = document.getElementById('report-title');
+
+                titleEl.textContent = title;
+                outputContainer.style.display = 'block';
+                chartContainer.style.display = showChart ? 'block' : 'none';
+                kpiPanel.style.display = document.getElementById('report-type').value === 'director-report' ? 'grid' : 'none';
+            }
+
+            function renderExecutiveKpiPanel(kpis) {
+                const formatCurrency = value => (Number(value) || 0).toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL'
+                });
+                const formatNumber = value => (Number(value) || 0).toLocaleString('pt-BR');
+                const formatPercent = value => `${(Number(value) || 0).toFixed(2).replace('.', ',')}%`;
+                const productionEfficiency = kpis.totalProdProgramado > 0
+                    ? (kpis.totalProdRealizado / kpis.totalProdProgramado) * 100
+                    : 0;
+                const headcountEfficiency = kpis.totalHcProgramado > 0
+                    ? (kpis.totalHcRealizado / kpis.totalHcProgramado) * 100
+                    : 0;
+                const programmedCostPerPiece = kpis.totalProdProgramado > 0
+                    ? kpis.totalLaborCostProgramado / kpis.totalProdProgramado
+                    : 0;
+                const realizedCostPerPiece = kpis.totalProdRealizado > 0
+                    ? kpis.totalLaborCostRealizado / kpis.totalProdRealizado
+                    : 0;
+                const costVariation = programmedCostPerPiece > 0
+                    ? ((realizedCostPerPiece - programmedCostPerPiece) / programmedCostPerPiece) * 100
+                    : 0;
+
+                document.getElementById('report-kpi-production').textContent = formatNumber(kpis.totalProdRealizado);
+                document.getElementById('report-kpi-production-meta').textContent = `${formatNumber(kpis.totalProdProgramado)} programado`;
+                document.getElementById('report-kpi-production-variation').textContent = `${formatPercent(productionEfficiency)} de eficiência`;
+
+                document.getElementById('report-kpi-headcount').textContent = formatNumber(kpis.totalHcRealizado);
+                document.getElementById('report-kpi-headcount-meta').textContent = `${formatNumber(kpis.totalHcProgramado)} programado`;
+                document.getElementById('report-kpi-headcount-variation').textContent = `${formatPercent(headcountEfficiency)} de eficiência`;
+
+                document.getElementById('report-kpi-cost').textContent = formatCurrency(realizedCostPerPiece);
+                document.getElementById('report-kpi-cost-meta').textContent = `Programado: ${formatCurrency(programmedCostPerPiece)}`;
+                document.getElementById('report-kpi-cost-variation').textContent = `Variação: ${formatPercent(costVariation)}`;
+            }
 
             function renderReportTable(headers, data) {
                 const table = document.getElementById('report-table');
@@ -4246,6 +4303,69 @@
                 });
             }
 
+            function normalizeReportLineName(lineName) {
+                if (!lineName) return 'Sem Linha';
+                const normalized = lineName.trim();
+                if (normalized.toUpperCase() === 'CIRURGICO') return 'Cirúrgico';
+                if (normalized.toUpperCase() === 'REPACK CAIXA') return 'Repack Caixa';
+                if (normalized.toUpperCase() === 'REPACK DE CAIXA') return 'Repack de Caixa';
+                return normalized.charAt(0).toUpperCase() + normalized.slice(1).toLowerCase();
+            }
+
+            function getReportPeriodLabel(startDate, endDate) {
+                return `${formatDate(startDate)} a ${formatDate(endDate)}`;
+            }
+
+            function getPreviousReportPeriod(startDate, endDate) {
+                const currentStart = new Date(`${startDate}T00:00:00`);
+                const currentEnd = new Date(`${endDate}T00:00:00`);
+                const durationDays = Math.round((currentEnd - currentStart) / (1000 * 60 * 60 * 24)) + 1;
+                const previousEnd = new Date(currentStart);
+                previousEnd.setDate(previousEnd.getDate() - 1);
+                const previousStart = new Date(previousEnd);
+                previousStart.setDate(previousStart.getDate() - durationDays + 1);
+
+                return {
+                    startDate: previousStart.toISOString().split('T')[0],
+                    endDate: previousEnd.toISOString().split('T')[0]
+                };
+            }
+
+            function getReportFilters({ startDate = null, endDate = null } = {}) {
+                return {
+                    startDate,
+                    endDate,
+                    line: document.getElementById('report-line-filter').value,
+                    group: document.getElementById('report-group-filter').value,
+                    sector: 'Todos',
+                    item: ''
+                };
+            }
+
+            function getReportFilteredEntries({ useDateRange = false, filtersOverride = null } = {}) {
+                const dateRange = useDateRange ? getReportDateRange() : { startDate: null, endDate: null };
+
+                const filters = filtersOverride || getReportFilters(dateRange);
+                const filteredEntries = [];
+
+                state.entries.forEach(entry => {
+                    if (filters.startDate && entry.date < filters.startDate) return;
+                    if (filters.endDate && entry.date > filters.endDate) return;
+
+                    const normalizedLineName = normalizeReportLineName(entry.lineName);
+                    if (filters.line !== 'all' && normalizedLineName !== filters.line) return;
+
+                    const products = (entry.products || []).filter(product =>
+                        filters.group === 'all' || product.group === filters.group || product.sector === filters.group
+                    );
+                    if (filters.group !== 'all' && products.length === 0) return;
+
+                    filteredEntries.push({ ...entry, products });
+                });
+
+                return filteredEntries;
+            }
+
             function renderReport() {
                 const reportType = document.getElementById('report-type').value;
                 switch(reportType) {
@@ -4271,8 +4391,7 @@
             }
             
             function renderDirectorReport() {
-                const startDate = reportDatepicker.getStartDate()?.toJSDate().toISOString().split('T')[0];
-                const endDate = reportDatepicker.getEndDate()?.toJSDate().toISOString().split('T')[0];
+                const { startDate, endDate } = getReportDateRange();
                 const lineFilter = document.getElementById('report-line-filter').value;
 
                 if (!startDate || !endDate) {
@@ -4280,44 +4399,34 @@
                     return;
                 }
 
-                const filtered = state.entries.filter(e => {
-                    return e.date >= startDate && e.date <= endDate &&
-                           (lineFilter === 'all' || e.lineName === lineFilter);
-                });
-
-                // Agregação de Dados
-                const summary = {
-                    prodProg: 0, prodReal: 0,
-                    hcProg: 0, hcReal: 0,
-                    laborCostProg: 0, laborCostReal: 0
-                };
-                const costFactor = (151.64 / (8.5 * 60));
-
-                filtered.forEach(entry => {
-                    summary.hcProg += entry.lineHcProgrammed || 0;
-                    summary.hcReal += entry.lineHcRealized || 0;
-                    summary.laborCostProg += (entry.lineHcProgrammed || 0) * (entry.programmedTime || 0) * costFactor;
-                    summary.laborCostReal += (entry.lineHcRealized || 0) * (entry.realizedTime || 0) * costFactor;
-
-                    (entry.products || []).forEach(p => {
-                        summary.prodProg += p.programmedQty || 0;
-                        summary.prodReal += p.realizedQty || 0;
-                    });
-                });
+                const reportFilters = getReportFilters({ startDate, endDate });
+                const filtered = getReportFilteredEntries({ filtersOverride: reportFilters });
+                const dashboardKpis = calculateDashboardKPIs(filtered, reportFilters);
 
                 const formatCurrency = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                const formatPercent = (val) => `${val.toFixed(2)}%`;
+                const formatPercent = (val) => `${(Number(val) || 0).toFixed(2)}%`;
 
                 const kpiData = [
-                    { kpi: 'Produção (Qtd)', prog: summary.prodProg, real: summary.prodReal, eff: summary.prodProg > 0 ? (summary.prodReal / summary.prodProg) * 100 : 0 },
-                    { kpi: 'Headcount (Pessoas)', prog: summary.hcProg, real: summary.hcReal, eff: summary.hcProg > 0 ? (summary.hcReal / summary.hcProg) * 100 : 0 },
-                    { kpi: 'Custo/Peça (R$)', 
-                      prog: summary.prodProg > 0 ? (summary.laborCostProg / summary.prodProg) : 0, 
-                      real: summary.prodReal > 0 ? (summary.laborCostReal / summary.prodReal) : 0, 
-                      eff: 0 // Calculado abaixo
+                    {
+                        kpi: 'Produção (Qtd)',
+                        prog: dashboardKpis.totalProdProgramado,
+                        real: dashboardKpis.totalProdRealizado,
+                        eff: dashboardKpis.totalProdProgramado > 0 ? (dashboardKpis.totalProdRealizado / dashboardKpis.totalProdProgramado) * 100 : 0
+                    },
+                    {
+                        kpi: 'Headcount (Pessoas)',
+                        prog: dashboardKpis.totalHcProgramado,
+                        real: dashboardKpis.totalHcRealizado,
+                        eff: dashboardKpis.totalHcProgramado > 0 ? (dashboardKpis.totalHcRealizado / dashboardKpis.totalHcProgramado) * 100 : 0
+                    },
+                    {
+                        kpi: 'Custo/Peça (R$)',
+                        prog: dashboardKpis.totalProdProgramado > 0 ? dashboardKpis.totalLaborCostProgramado / dashboardKpis.totalProdProgramado : 0,
+                        real: dashboardKpis.totalProdRealizado > 0 ? dashboardKpis.totalLaborCostRealizado / dashboardKpis.totalProdRealizado : 0,
+                        eff: 0
                     }
                 ];
-                // Eficiência de Custo: (Custo Prog - Custo Real) / Custo Prog (Variação inversa)
+
                 kpiData[2].eff = kpiData[2].prog > 0 ? ((kpiData[2].real - kpiData[2].prog) / kpiData[2].prog) * 100 : 0;
 
                 currentReportHeaders = ["Indicador", "Programado", "Realizado", "Eficiência / Variação"];
@@ -4329,38 +4438,28 @@
                 }));
 
                 renderReportTable(currentReportHeaders, currentReportData);
-                
-                // Oculta gráfico para este relatório pois é focado em tabela
-                document.getElementById('report-chart').parentElement.style.display = 'none';
-                document.getElementById('report-title').textContent = `Relatório Diretoria - ${formatDate(startDate)} a ${formatDate(endDate)}`;
-                document.getElementById('report-output-container').style.display = 'block';
+                renderExecutiveKpiPanel(dashboardKpis);
+                showReportOutput('Painel de KPIs', false);
             }
 
             function renderMonthlySummary() {
-                const monthInput = document.getElementById('report-month').value;
-                const lineFilter = document.getElementById('report-line-filter').value;
-                if (!monthInput) {
-                    showToast("Por favor, selecione um mês.", "error");
+                const { startDate, endDate } = getReportDateRange();
+                if (!startDate || !endDate) {
+                    showToast("Por favor, selecione um período.", "error");
                     return;
                 }
 
-                const [year, month] = monthInput.split('-');
-
-                const filtered = state.entries.filter(e => {
-                    const entryDate = new Date(e.date + 'T00:00:00');
-                    return entryDate.getFullYear() == year &&
-                           (entryDate.getMonth() + 1) == month &&
-                           (lineFilter === 'all' || e.lineName === lineFilter);
-                });
-
+                const filtered = getReportFilteredEntries({ useDateRange: true });
                 const dataByLine = {};
+
                 filtered.forEach(entry => {
-                    if (!dataByLine[entry.lineName]) {
-                        dataByLine[entry.lineName] = { programmed: 0, realized: 0 };
+                    const lineName = normalizeReportLineName(entry.lineName);
+                    if (!dataByLine[lineName]) {
+                        dataByLine[lineName] = { programmed: 0, realized: 0 };
                     }
                     (entry.products || []).forEach(p => {
-                        dataByLine[entry.lineName].programmed += p.programmedQty || 0;
-                        dataByLine[entry.lineName].realized += p.realizedQty || 0;
+                        dataByLine[lineName].programmed += p.programmedQty || 0;
+                        dataByLine[lineName].realized += p.realizedQty || 0;
                     });
                 });
 
@@ -4373,10 +4472,10 @@
                 }));
 
                 renderReportTable(currentReportHeaders, currentReportData);
-                
+
                 const chartLabels = Object.keys(dataByLine);
                 const chartDataEfficiency = Object.values(dataByLine).map(d => d.programmed > 0 ? (d.realized / d.programmed) * 100 : 0);
-                
+
                 renderReportChart({
                     type: 'bar',
                     labels: chartLabels,
@@ -4386,37 +4485,30 @@
                         backgroundColor: '#3b82f6',
                     }]
                 });
-                
-                document.getElementById('report-title').textContent = `Resumo Mensal para ${month}/${year}`;
-                document.getElementById('report-output-container').style.display = 'block';
+
+                showReportOutput(`Resumo por Linha - ${getReportPeriodLabel(startDate, endDate)}`);
             }
 
             function renderPeriodComparison() {
-                const monthInput = document.getElementById('report-month').value;
-                if (!monthInput) {
-                    showToast("Por favor, selecione um mês para comparação.", "error");
+                const currentPeriod = getReportDateRange();
+                if (!currentPeriod.startDate || !currentPeriod.endDate) {
+                    showToast("Por favor, selecione um período para comparação.", "error");
                     return;
                 }
 
-                const [year, month] = monthInput.split('-').map(Number);
-                const currentPeriodStart = new Date(year, month - 1, 1);
-                const currentPeriodEnd = new Date(year, month, 0);
+                const previousPeriod = getPreviousReportPeriod(currentPeriod.startDate, currentPeriod.endDate);
 
-                const prevPeriodStart = new Date(year, month - 2, 1);
-                const prevPeriodEnd = new Date(year, month - 1, 0);
-
-                const calculateKpisForPeriod = (start, end) => {
-                    const startDateStr = start.toISOString().split('T')[0];
-                    const endDateStr = end.toISOString().split('T')[0];
-                    const periodEntries = state.entries.filter(e => e.date >= startDateStr && e.date <= endDateStr);
-                    return calculateDashboardKPIs(periodEntries);
+                const calculateKpisForPeriod = (period) => {
+                    const periodFilters = getReportFilters(period);
+                    const periodEntries = getReportFilteredEntries({ filtersOverride: periodFilters });
+                    return calculateDashboardKPIs(periodEntries, periodFilters);
                 };
 
-                const currentKpis = calculateKpisForPeriod(currentPeriodStart, currentPeriodEnd);
-                const prevKpis = calculateKpisForPeriod(prevPeriodStart, prevPeriodEnd);
+                const currentKpis = calculateKpisForPeriod(currentPeriod);
+                const prevKpis = calculateKpisForPeriod(previousPeriod);
 
                 const formatCurrency = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                const formatPercent = (val) => `${val.toFixed(2)}%`;
+                const formatPercent = (val) => `${(Number(val) || 0).toFixed(2)}%`;
                 const calculateVariation = (current, prev) => (prev > 0 ? ((current - prev) / prev) * 100 : (current > 0 ? 100 : 0));
 
                 const comparisonData = [
@@ -4449,7 +4541,7 @@
                     }
                 ];
 
-                currentReportHeaders = ["KPI", `Atual (${month}/${year})`, `Anterior (${prevPeriodStart.getMonth()+1}/${prevPeriodStart.getFullYear()})`, "Variação"];
+                currentReportHeaders = ["KPI", `Atual (${getReportPeriodLabel(currentPeriod.startDate, currentPeriod.endDate)})`, `Anterior (${getReportPeriodLabel(previousPeriod.startDate, previousPeriod.endDate)})`, "Variação"];
                 currentReportData = comparisonData;
                 renderReportTable(currentReportHeaders, currentReportData);
 
@@ -4458,50 +4550,42 @@
                     labels: comparisonData.map(d => d.kpi),
                     datasets: [
                         {
-                            label: `Atual (${month}/${year})`,
+                            label: `Atual (${getReportPeriodLabel(currentPeriod.startDate, currentPeriod.endDate)})`,
                             data: [currentKpis.lineEfficiency, currentKpis.totalLaborCostRealizado / (currentKpis.totalProdRealizado || 1), currentKpis.totalFaturamentoRealizado, currentKpis.allImprodutivos.length],
                             backgroundColor: '#3b82f6',
                         },
                         {
-                            label: `Anterior (${prevPeriodStart.getMonth()+1}/${prevPeriodStart.getFullYear()})`,
+                            label: `Anterior (${getReportPeriodLabel(previousPeriod.startDate, previousPeriod.endDate)})`,
                             data: [prevKpis.lineEfficiency, prevKpis.totalLaborCostRealizado / (prevKpis.totalProdRealizado || 1), prevKpis.totalFaturamentoRealizado, prevKpis.allImprodutivos.length],
                             backgroundColor: '#9ca3af',
                         }
                     ]
                 });
 
-                document.getElementById('report-title').textContent = `Comparativo de Períodos: ${month}/${year} vs ${prevPeriodStart.getMonth()+1}/${prevPeriodStart.getFullYear()}`;
-                document.getElementById('report-output-container').style.display = 'block';
+                showReportOutput(`Comparativo: ${getReportPeriodLabel(currentPeriod.startDate, currentPeriod.endDate)} vs ${getReportPeriodLabel(previousPeriod.startDate, previousPeriod.endDate)}`);
             }
 
             function renderProductPerformance() {
-                const monthInput = document.getElementById('report-month').value;
-                const lineFilter = document.getElementById('report-line-filter').value;
-                const groupFilter = document.getElementById('report-group-filter').value;
+                const { startDate, endDate } = getReportDateRange();
                 const productSearchTerm = document.getElementById('report-product-search').value.toUpperCase();
                 const productSortOrder = document.getElementById('report-product-sort').value;
 
-                if (!monthInput) {
-                    showToast("Por favor, selecione um mês.", "error");
+                if (!startDate || !endDate) {
+                    showToast("Por favor, selecione um período.", "error");
                     return;
                 }
-                const [year, month] = monthInput.split('-');
 
+                const filtered = getReportFilteredEntries({ useDateRange: true });
                 const dataByProduct = {};
 
-                state.entries.forEach(entry => {
-                    const entryDate = new Date(entry.date + 'T00:00:00');
-                    if (entryDate.getFullYear() != year || (entryDate.getMonth() + 1) != month) return;
-                    if (lineFilter !== 'all' && entry.lineName !== lineFilter) return;
-
+                filtered.forEach(entry => {
                     (entry.products || []).forEach(p => {
-                        if (groupFilter !== 'all' && p.group !== groupFilter) return;
-                        
-                        if (!dataByProduct[p.itemCode]) {
-                            dataByProduct[p.itemCode] = { programmed: 0, realized: 0 };
+                        const productCode = p.itemCode || p.code || '';
+                        if (!dataByProduct[productCode]) {
+                            dataByProduct[productCode] = { programmed: 0, realized: 0 };
                         }
-                        dataByProduct[p.itemCode].programmed += p.programmedQty || 0;
-                        dataByProduct[p.itemCode].realized += p.realizedQty || 0;
+                        dataByProduct[productCode].programmed += p.programmedQty || 0;
+                        dataByProduct[productCode].realized += p.realizedQty || 0;
                     });
                 });
 
@@ -4518,7 +4602,7 @@
 
                 if (productSortOrder === 'best') {
                     performanceData.sort((a, b) => b.efficiency - a.efficiency);
-                } else { // 'worst'
+                } else {
                     performanceData.sort((a, b) => a.efficiency - b.efficiency);
                 }
 
@@ -4543,47 +4627,37 @@
                     }]
                 });
 
-                document.getElementById('report-title').textContent = `Performance de Produto para ${month}/${year}`;
-                document.getElementById('report-output-container').style.display = 'block';
+                showReportOutput(`Performance de Produto - ${getReportPeriodLabel(startDate, endDate)}`);
             }
 
             function renderDailyProductRun() {
-                const monthInput = document.getElementById('report-month').value;
-                const lineFilter = document.getElementById('report-line-filter').value;
-                if (!monthInput) {
-                    showToast("Por favor, selecione um mês.", "error");
+                const { startDate, endDate } = getReportDateRange();
+                if (!startDate || !endDate) {
+                    showToast("Por favor, selecione um período.", "error");
                     return;
                 }
 
-                const [year, month] = monthInput.split('-');
-
-                const filtered = state.entries.filter(e => {
-                    const entryDate = new Date(e.date + 'T00:00:00');
-                    return entryDate.getFullYear() == year &&
-                           (entryDate.getMonth() + 1) == month &&
-                           (lineFilter === 'all' || e.lineName === lineFilter);
-                });
-
+                const filtered = getReportFilteredEntries({ useDateRange: true });
                 const dataByDateAndLine = {};
+
                 filtered.forEach(entry => {
                     const date = entry.date;
-                    const lineName = entry.lineName;
+                    const lineName = normalizeReportLineName(entry.lineName);
                     const key = `${date}|${lineName}`;
 
                     if (!dataByDateAndLine[key]) {
                         dataByDateAndLine[key] = {
                             date: formatDate(date),
                             line: lineName,
-                            products: {} 
-                         };
-                     }
- 
-                     (entry.products || []).forEach(p => {
-                         if (p.itemCode && (p.realizedQty || 0) > 0) {
-                             // Soma a quantidade realizada para cada produto
-                             dataByDateAndLine[key].products[p.itemCode] = (dataByDateAndLine[key].products[p.itemCode] || 0) + p.realizedQty;
-                         }
-                     });
+                            products: {}
+                        };
+                    }
+
+                    (entry.products || []).forEach(p => {
+                        if (p.itemCode && (p.realizedQty || 0) > 0) {
+                            dataByDateAndLine[key].products[p.itemCode] = (dataByDateAndLine[key].products[p.itemCode] || 0) + p.realizedQty;
+                        }
+                    });
                 });
 
                 currentReportHeaders = ["Data", "Linha", "Produtos e Quantidades Produzidas"];
@@ -4604,83 +4678,43 @@
                     datasets: [{ label: 'Nº de Linhas Ativas', data: chartDataCount, backgroundColor: '#0ea5e9' }]
                 });
 
-                document.getElementById('report-title').textContent = `Produtos Rodados por Dia em ${month}/${year}`;
-                document.getElementById('report-output-container').style.display = 'block';
+                showReportOutput(`Produtos Rodados por Dia - ${getReportPeriodLabel(startDate, endDate)}`);
             }
 
             function renderDowntimeAnalysis() {
-                const monthInput = document.getElementById('report-month').value;
-                const lineFilter = document.getElementById('report-line-filter').value;
-                if (!monthInput) {
-                    showToast("Por favor, selecione um mês.", "error");
+                const { startDate, endDate } = getReportDateRange();
+                if (!startDate || !endDate) {
+                    showToast("Por favor, selecione um período.", "error");
                     return;
                 }
-                const [year, month] = monthInput.split('-');
 
-                const filtered = state.entries.filter(e => {
-                    const entryDate = new Date(e.date + 'T00:00:00');
-                    return entryDate.getFullYear() == year &&
-                           (entryDate.getMonth() + 1) == month &&
-                           (lineFilter === 'all' || e.lineName === lineFilter);
-                });
-
-                const costByLine = {};
-                filtered.forEach(entry => {
-                    const lineName = entry.lineName || 'Sem Linha';
-                    if (!costByLine[lineName]) {
-                        costByLine[lineName] = { faturamentoProgramado: 0, faturamentoRealizado: 0, totalMinutos: 0 };
-                    }
-                    (entry.products || []).forEach(p => {
-                        if (p.type === 'PRODUTO ACABADO') {
-                            costByLine[lineName].faturamentoProgramado += (p.programmedQty || 0) * (p.unitCost || 0);
-                            costByLine[lineName].faturamentoRealizado += (p.realizedQty || 0) * (p.unitCost || 0);
-                        }
-                    });
-                    (entry.improdutivos || []).forEach(i => {
-                        if (i.impactType === 'Parada de Produção') {
-                            costByLine[lineName].totalMinutos += i.minutes || 0;
-                        }
-                    });
-                });
-
-                const custoPorMinuto = {};
-                for (const lineName in costByLine) {
-                    const data = costByLine[lineName];
-                    const faturamentoPerdido = Math.max(0, data.faturamentoProgramado - data.faturamentoRealizado);
-                    custoPorMinuto[lineName] = data.totalMinutos > 0 ? faturamentoPerdido / data.totalMinutos : 0;
-                }
-
-                const downtimeBySector = {}; // Para o gráfico
-                const detailedDowntimeData = []; // Para a tabela detalhada
+                const reportFilters = getReportFilters({ startDate, endDate });
+                const filtered = getReportFilteredEntries({ filtersOverride: reportFilters });
+                const dashboardKpis = calculateDashboardKPIs(filtered, reportFilters);
+                const downtimeBySector = {};
+                const detailedDowntimeData = [];
                 const formatCurrency = (val) => val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
                 filtered.forEach(entry => {
-                    const lineName = entry.lineName || 'Sem Linha';
-                    (entry.improdutivos || []).forEach(i => {
-                        const sector = i.sector || 'Não especificado';
-                        if (!downtimeBySector[sector]) {
-                            downtimeBySector[sector] = { minutes: 0 };
-                        }
-                        const minutes = i.minutes || 0;
-                        downtimeBySector[sector].minutes += minutes;
-                        
-                        let costOfDowntime = 0;
-                        if (i.impactType === 'Parada de Produção') {
-                            costOfDowntime = minutes * (custoPorMinuto[lineName] || 0);
-                        }
-                        const additionalCost = i.additionalCost || 0;
-                        const totalCost = costOfDowntime + additionalCost;
+                    (entry.improdutivos || []).forEach(imp => {
+                        const sector = imp.sector || 'Não especificado';
+                        if (!downtimeBySector[sector]) downtimeBySector[sector] = { minutes: 0 };
+                        downtimeBySector[sector].minutes += imp.minutes || 0;
+
+                        const lineName = normalizeReportLineName(entry.lineName);
+                        const costPerMinute = dashboardKpis.custoPorMinuto?.[entry.date]?.[lineName] || 0;
+                        const totalCost = (imp.impactType === 'Parada de Produção' ? (imp.minutes || 0) * costPerMinute : 0) + (imp.additionalCost || 0);
 
                         detailedDowntimeData.push({
                             data: formatDate(entry.date),
-                            ocorrencia: i.occurrence || '',
+                            ocorrencia: imp.occurrence || '',
                             setor: sector,
-                            tempo: minutes,
+                            tempo: imp.minutes || 0,
                             custo: formatCurrency(totalCost),
-                            plano_emergencia: i.emergencyPlan || '',
-                            plano_acao: i.actionPlan || '',
-                            prazo: i.deadline ? formatDate(i.deadline) : '',
-                            aprovacao: i.status || 'Pendente'
+                            plano_emergencia: imp.emergencyPlan || '',
+                            plano_acao: imp.actionPlan || '',
+                            prazo: imp.deadline ? formatDate(imp.deadline) : '',
+                            aprovacao: imp.status || 'Pendente'
                         });
                     });
                 });
@@ -4700,8 +4734,7 @@
                     }]
                 });
 
-                document.getElementById('report-title').textContent = `Análise de Improdutividade para ${month}/${year}`;
-                document.getElementById('report-output-container').style.display = 'block';
+                showReportOutput(`Análise de Improdutividade - ${getReportPeriodLabel(startDate, endDate)}`);
             }
 
             function exportReportToCSV() {
@@ -4711,39 +4744,63 @@
                 }
 
                 const reportType = document.getElementById('report-type').value;
-                let dataToExport = currentReportData;
-                let headers = currentReportHeaders;
+                let headers = [...currentReportHeaders];
+                let rows = currentReportData.map(row => Object.values(row));
+
+                if (reportType === 'downtime-analysis') {
+                    const costColumnIndex = headers.indexOf('Custo (R$)');
+                    if (costColumnIndex >= 0) {
+                        rows = rows.map(row => {
+                            const normalizedRow = [...row];
+                            const costText = String(normalizedRow[costColumnIndex] || '')
+                                .replace(/R\$\s?/g, '')
+                                .replace(/\./g, '')
+                                .replace(',', '.');
+                            const costValue = Number(costText);
+                            normalizedRow[costColumnIndex] = Number.isFinite(costValue) ? costValue : 0;
+                            return normalizedRow;
+                        });
+                    }
+                }
 
                 // Personaliza a exportação para o relatório "Produto por Dia"
                 if (reportType === 'daily-product-run') {
                     headers = ["DATA", "LINHA", "PRODUTO", "VOLUME"];
-                    const flatData = [];
+                    rows = [];
                     currentReportData.forEach(row => {
                         if (row.products) {
                             const productPairs = row.products.split(', ');
                             productPairs.forEach(pair => {
-                                const match = pair.match(/(.*) \((\d+)\)/);
+                                const match = pair.match(/(.*) \(([-\d.,]+)\)$/);
                                 if (match) {
                                     const [, productCode, quantity] = match;
-                                    flatData.push({
-                                        "DATA": row.date,
-                                        "LINHA": row.line,
-                                        "PRODUTO": productCode,
-                                        "VOLUME": parseInt(quantity, 10)
-                                    });
+                                    rows.push([row.date, row.line, productCode, quantity]);
                                 }
                             });
                         }
                     });
-                    dataToExport = flatData;
                 }
 
-                const worksheet = XLSX.utils.json_to_sheet(dataToExport, { header: headers });
-                const workbook = XLSX.utils.book_new();
-                XLSX.utils.book_append_sheet(workbook, worksheet, "Relatório");
-                
-                const monthInput = document.getElementById('report-month').value;
-                XLSX.writeFile(workbook, `relatorio_${reportType}_${monthInput}.xlsx`);
+                const escapeCsvValue = value => {
+                    if (typeof value === 'number' && Number.isFinite(value)) {
+                        return value.toLocaleString('pt-BR', { useGrouping: false, maximumFractionDigits: 2 });
+                    }
+                    const text = value === null || value === undefined ? '' : String(value);
+                    return `"${text.replace(/"/g, '""')}` + '"';
+                };
+                const csvContent = '\uFEFF' + [headers, ...rows]
+                    .map(row => row.map(escapeCsvValue).join(';'))
+                    .join('\r\n');
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                const period = document.getElementById('report-date-range').value || 'periodo';
+                link.download = `relatorio_${reportType}_${period.replace(/[\\/:]/g, '-')}.csv`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
             }
 
             function exportReportToPDF() {
@@ -4801,19 +4858,15 @@
                         // Preparar dados de Improdutividade
                         const startDate = reportDatepicker.getStartDate()?.toJSDate().toISOString().split('T')[0];
                         const endDate = reportDatepicker.getEndDate()?.toJSDate().toISOString().split('T')[0];
-                        const lineFilter = document.getElementById('report-line-filter').value;
-
-                        const filtered = state.entries.filter(e => {
-                            return e.date >= startDate && e.date <= endDate &&
-                                (lineFilter === 'all' || e.lineName === lineFilter);
-                        });
+                        const reportFilters = getReportFilters({ startDate, endDate });
+                        const filtered = getReportFilteredEntries({ filtersOverride: reportFilters });
 
                         const downtimeEvents = [];
                         filtered.forEach(entry => {
                             (entry.improdutivos || []).forEach(imp => {
                                 downtimeEvents.push([
                                     formatDate(entry.date),
-                                    entry.lineName,
+                                    normalizeReportLineName(entry.lineName),
                                     imp.occurrence,
                                     imp.sector,
                                     imp.minutes + " min",
@@ -4855,13 +4908,13 @@
 
                 // --- LÓGICA PADRÃO PARA OUTROS RELATÓRIOS ---
                 const reportTitle = document.getElementById('report-title').textContent;
-                const monthInput = document.getElementById('report-month').value;
+                const reportPeriod = document.getElementById('report-date-range').value || 'período selecionado';
                 
                 doc.setFontSize(18);
                 doc.text(reportTitle, 14, 22);
                 doc.setFontSize(11);
                 doc.setTextColor(100);
-                doc.text(`Período: ${document.getElementById('report-date-range').value || monthInput}`, 14, 30);
+                doc.text(`Período: ${reportPeriod}`, 14, 30);
 
                 const canvas = document.getElementById('report-chart');
                 const canvasImage = canvas.toDataURL('image/png', 1.0);
@@ -4873,890 +4926,18 @@
                     startY: 140,
                 });
 
-                doc.save(`relatorio_${document.getElementById('report-type').value}_${monthInput || 'periodo'}.pdf`);
+                doc.save(`relatorio_${document.getElementById('report-type').value}_${reportPeriod.replace(/[\\/:]/g, '-')}.pdf`);
             }
             
             generateBtn.addEventListener('click', renderReport);
             exportCsvBtn.addEventListener('click', exportReportToCSV);
             exportPdfBtn.addEventListener('click', exportReportToPDF);
 
-            const today = new Date();
-            const year = today.getFullYear();
-            const month = (today.getMonth() + 1).toString().padStart(2, '0');
-                const currentYear = new Date().getFullYear();
-                const currentMonth = (new Date().getMonth() + 1).toString().padStart(2, '0');
-                document.getElementById('report-month').value = `${currentYear}-${currentMonth}`;
-
             window.addEventListener('themeChanged', () => {
                 if (document.getElementById('reports-view').classList.contains('active') && document.getElementById('report-output-container').style.display !== 'none') {
                     renderReport();
                 }
             });
-        }
-
-        //======================================================================
-        // NOVO: MÓDULO DE PEDIDOS
-        //======================================================================
-        function setupOrdersModule(db, state) {
-            // 1. Configuração e Coleções
-            const getOrdersCollection = () => {
-                const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-                return collection(db, `artifacts/${appId}/public/data/orders`);
-            };
-
-            // Estado local do módulo
-            let trackingOrders = []; // Pedidos ativos (tempo real)
-            let dbOrders = [];       // Pedidos do histórico (paginado)
-            let lastVisibleDoc = null;
-            let firstVisibleDoc = null;
-            let currentPage = 1;
-            const pageSize = 50;
-
-            // Variáveis para gráficos e UI do dashboard de pedidos
-            let ordersStatusChart = null;
-            let ordersTrendChart = null;
-            let ordersClientChart = null;
-            let ordersLocationChart = null;
-            let ordersAgingChart = null;
-            let ordersDatepicker = null;
-            let dashboardOrdersData = []; // Dados carregados para o dashboard
-            let currentDrillDownFilter = 'atrasado'; // Filtro atual da tabela de detalhes
-            let activeClientFilter = null; // Filtro cruzado de cliente
-
-            // 2. Seletores de Elementos
-            const ordersNav = document.getElementById('orders-nav');
-            const orderSections = document.querySelectorAll('.orders-section');
-            const orderForm = document.getElementById('order-entry-form');
-            const itemsContainer = document.getElementById('order-items-container');
-            const totalValueEl = document.getElementById('order-total-value');
-            const dbTableBody = document.querySelector('#orders-db-table tbody');
-            const trackingTableBody = document.querySelector('#orders-tracking-table tbody');
-            const trackingModal = document.getElementById('orderTrackingModal');
-            const trackingForm = document.getElementById('order-tracking-form');
-            const content = document.getElementById('orderTrackingContent');
-            
-            // Elementos de Paginação e Filtro
-            const dbPrevBtn = document.getElementById('db-prev-btn');
-            const dbNextBtn = document.getElementById('db-next-btn');
-            const dbPageInfo = document.getElementById('db-page-info');
-            const dbClientFilter = document.getElementById('db-client-filter');
-            const dbSearchBtn = document.getElementById('db-search-btn');
-            const ordersDashboardDateRange = document.getElementById('orders-dashboard-date-range');
-
-            // 8. Funções Auxiliares (movidas para antes do seu uso)
-            const calculateOrderStatus = (order) => {
-                if (order.logistics.pedidoEntregue) return 'Entregue';
-                const logistics = order.logistics || {};
-                if (logistics.pedidoEntregue) return 'Entregue';
-                if (logistics.pedidoExpedido) return 'Em Trânsito';
-                
-                // Verifica status parcial
-                const items = order.items || [];
-                const itemsStatus = order.logistics.itemsStatus || [];
-                
-                // Se houver itens e algum deles estiver entregue (mas não todos, pois cairia no if acima ou seria tratado na lógica de atualização)
-                // Na verdade, vamos verificar se TODOS os itens estão entregues para marcar como entregue automaticamente,
-                // ou se ALGUM está entregue para marcar como parcial.
-                
-                // Mapeia status dos itens
-                const allItemsDelivered = items.length > 0 && items.every(item => {
-                    const status = itemsStatus.find(s => s.itemCode === item.itemCode)?.status;
-                    return status === 'Entregue'; // Assumindo que existe um status 'Entregue' para item
-                });
-
-                // Como o modal atual só tem "Em Estoque", "Em Produção", "Esterilização", vamos manter a lógica simples baseada no checkbox global por enquanto,
-                // mas adicionar a lógica de "Parcial" se o usuário marcar manualmente ou se implementarmos status de item "Entregue" no futuro.
-                // Por enquanto, vamos considerar "Parcialmente Entregue" se o checkbox de expedido estiver marcado mas não o de entregue, E houver alguma observação de entrega parcial (lógica futura).
-                
-                // Lógica simplificada solicitada:
-                if (order.logistics.pedidoExpedido) return 'Em Trânsito';
-                
-                const today = new Date().toISOString().split('T')[0];
-                if (order.dataEntrega < today) return 'Atrasado';
-                return 'A Enviar';
-            };
-
-            const renderOrdersDbTable = () => {
-                dbTableBody.innerHTML = '';
-                if (dbOrders.length === 0) {
-                    dbTableBody.innerHTML = '<tr><td colspan="5" class="text-center p-4">Nenhum pedido encontrado.</td></tr>';
-                    return;
-                }
-                dbOrders.forEach(order => {
-                    const row = dbTableBody.insertRow();
-                    
-                    // Destaque de Prioridade
-                    if (order.prioridade === 'Urgente') {
-                        row.classList.add('bg-red-100');
-                    }
-
-                    const totalValue = order.items.reduce((sum, item) => sum + (item.qty * item.unitValue), 0);
-                    row.innerHTML = `
-                        <td class="p-2 border-t">${order.pv}</td>
-                        <td class="p-2 border-t">${order.cliente}</td>
-                        <td class="p-2 border-t">${new Date(order.dataPedido).toLocaleDateString('pt-BR')}</td>
-                        <td class="p-2 border-t text-right">${totalValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-                        <td class="p-2 border-t text-center">
-                            <button class="view-order-btn button-base bg-blue-500 text-xs py-1 px-3" title="Editar" data-id="${order.id}"><i class="fas fa-edit"></i></button>
-                            <button class="delete-order-btn button-base bg-red-500 text-xs py-1 px-3" title="Excluir" data-id="${order.id}"><i class="fas fa-trash"></i></button>
-                        </td>
-                    `;
-                });
-            };
-
-            const renderTrackingTable = () => {
-                trackingTableBody.innerHTML = '';
-                trackingOrders.forEach(order => {
-                    const row = trackingTableBody.insertRow();
-                    row.innerHTML = `
-                        <td class="p-2 border-t">${order.pv}</td>
-                        <td class="p-2 border-t">${order.cliente}</td>
-                        <td class="p-2 border-t">${calculateOrderStatus(order)}</td>
-                        <td class="p-2 border-t text-center">
-                            <button class="update-tracking-btn button-base bg-blue-500 text-xs py-1 px-3" data-id="${order.id}">Atualizar</button>
-                        </td>
-                    `;
-                });
-            };
-
-            const renderAllOrderSections = () => {
-                // Renderização agora é controlada pelos listeners do Firestore
-                // Apenas atualiza UI se necessário
-            };
-
-            // 3. Lógica de Navegação Interna
-            ordersNav.addEventListener('click', (e) => {
-                const card = e.target.closest('.order-nav-card');
-                if (!card) return;
-
-                document.querySelectorAll('.order-nav-card').forEach(c => {
-                    c.classList.remove('active-order-nav-card', 'bg-blue-100', 'border-blue-500');
-                    c.classList.add('bg-gray-50', 'hover:bg-gray-100');
-                });
-                card.classList.add('active-order-nav-card', 'bg-blue-100', 'border-blue-500');
-                card.classList.remove('bg-gray-50', 'hover:bg-gray-100');
-
-                const sectionId = card.dataset.section;
-                orderSections.forEach(sec => sec.style.display = 'none');
-                document.getElementById(sectionId).style.display = 'block';
-                
-                // Carrega dados específicos da seção
-                if (sectionId === 'orders-db-section') {
-                    fetchDbOrders();
-                } else if (sectionId === 'orders-dashboard-section') {
-                    // Inicializa o datepicker se ainda não existir
-                    if (!ordersDatepicker) initOrdersDatepicker();
-                    fetchOrdersDashboardData();
-                }
-            });
-
-            // 4. Lógica de Lançamento
-            const calculateTotal = () => {
-                let total = 0;
-                itemsContainer.querySelectorAll('.order-item-group').forEach(group => {
-                    const qty = parseFloat(group.querySelector('.order-item-qty').value) || 0;
-                    const value = parseFloat(group.querySelector('.order-item-value').value) || 0;
-                    total += qty * value;
-                });
-                totalValueEl.textContent = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                return total;
-            };
-
-            const addOrderItem = (item = {}) => {
-                // Cria as opções do select baseadas no estado global de produtos
-                let productOptions = '<option value="">Selecione um Produto</option>';
-                state.products.forEach(p => {
-                    const isSelected = item.itemCode === p.code ? 'selected' : '';
-                    // Guarda o preço no dataset para uso posterior
-                    productOptions += `<option value="${p.code}" data-price="${p.unitCost}" ${isSelected}>${p.code} - ${p.group}</option>`;
-                });
-
-                const div = document.createElement('div');
-                div.className = 'order-item-group grid grid-cols-12 gap-4 items-center p-2 bg-gray-50 rounded';
-                div.innerHTML = `
-                    <div class="col-span-5 input-group">
-                        <label class="sr-only">Código</label>
-                        <select class="order-item-code w-full p-2 border rounded" required>
-                            ${productOptions}
-                        </select>
-                    </div>
-                    <div class="col-span-3 input-group"><label class="sr-only">Qtd</label><input type="number" class="order-item-qty" placeholder="Qtd" value="${item.qty || ''}" required></div>
-                    <div class="col-span-3 input-group">
-                        <label class="sr-only">Valor</label>
-                        <input type="number" step="0.01" class="order-item-value" placeholder="Valor Unit." value="${item.unitValue || ''}" required>
-                    </div>
-                    <button type="button" class="remove-order-item-btn text-red-500 hover:text-red-700 col-span-1"><i class="fas fa-trash"></i></button>
-                `;
-                itemsContainer.appendChild(div);
-            };
-
-            itemsContainer.addEventListener('input', calculateTotal);
-            itemsContainer.addEventListener('click', (e) => {
-                if (e.target.closest('.remove-order-item-btn')) {
-                    e.target.closest('.order-item-group').remove();
-                    calculateTotal();
-                }
-            });
-
-            // NOVO: Evento para preencher preço automaticamente ao selecionar produto
-            itemsContainer.addEventListener('change', (e) => {
-                if (e.target.classList.contains('order-item-code')) {
-                    calculateTotal();
-                }
-            });
-
-            document.getElementById('add-order-item-btn').addEventListener('click', () => addOrderItem());
-
-            orderForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const docId = document.getElementById('order-form-doc-id').value;
-                const items = [];
-                itemsContainer.querySelectorAll('.order-item-group').forEach(group => {
-                    items.push({
-                        itemCode: group.querySelector('.order-item-code').value,
-                        qty: parseFloat(group.querySelector('.order-item-qty').value) || 0,
-                        unitValue: parseFloat(group.querySelector('.order-item-value').value) || 0,
-                    });
-                });
-
-                const pv = document.getElementById('order-pv').value;
-
-                // Validação de PV Único (apenas para novos registros ou se mudou o PV)
-                if (!docId) {
-                    const q = query(getOrdersCollection(), where("pv", "==", pv));
-                    const snapshot = await getDocs(q);
-                    if (!snapshot.empty) {
-                        showToast('Erro: Já existe um pedido com este PV!', 'error');
-                        return;
-                    }
-                }
-
-                const orderData = {
-                    pv: pv,
-                    cliente: document.getElementById('order-cliente').value,
-                    dataEntrega: document.getElementById('order-data-entrega').value,
-                    local: document.getElementById('order-local').value,
-                    prioridade: document.getElementById('order-prioridade').value,
-                    items: items,
-                    valorTotal: calculateTotal(),
-                    status: 'A Enviar',
-                    // Mantém logística existente se for edição, senão cria nova
-                    logistics: docId ? (trackingOrders.find(o => o.id === docId) || dbOrders.find(o => o.id === docId))?.logistics || { itemsStatus: [] } : { itemsStatus: [] }
-                };
-
-                try {
-                    if (docId) {
-                        // Preserva data de criação
-                        await updateDoc(doc(getOrdersCollection(), docId), orderData);
-                        showToast('Pedido atualizado com sucesso!', 'success');
-                    } else {
-                        orderData.dataPedido = new Date().toISOString();
-                        await addDoc(getOrdersCollection(), orderData);
-                        showToast('Pedido salvo com sucesso!', 'success');
-                    }
-                    orderForm.reset();
-                    itemsContainer.innerHTML = '';
-                    calculateTotal();
-                } catch (error) {
-                    console.error("Erro ao salvar pedido:", error);
-                    showToast('Erro ao salvar pedido.', 'error');
-                }
-            });
-            
-            document.getElementById('clear-order-form-btn').addEventListener('click', () => {
-                orderForm.reset();
-                itemsContainer.innerHTML = '';
-                calculateTotal();
-            });
-
-            // Placeholder para importação
-            document.getElementById('import-orders-btn').addEventListener('click', () => {
-                showToast('Funcionalidade de importação em desenvolvimento.', 'info');
-                // document.getElementById('order-import-file').click();
-            });
-
-            // 5. Lógica do Banco de Dados - Event Listeners
-            dbTableBody.addEventListener('click', (e) => {
-                const btn = e.target.closest('button');
-                if (!btn) return;
-                
-                const id = btn.dataset.id;
-                
-                if (btn.classList.contains('delete-order-btn')) {
-                    showConfirmDialog('Tem certeza que deseja excluir este pedido?', (confirmed) => {
-                        if (confirmed) {
-                            deleteDoc(doc(getOrdersCollection(), id))
-                                .then(() => {
-                                    showToast('Pedido excluído com sucesso!', 'success');
-                                    // Se estiver na view de DB, atualiza a lista
-                                    if(document.getElementById('orders-db-section').style.display !== 'none') fetchDbOrders();
-                                })
-                                .catch(err => showToast('Erro ao excluir: ' + err.message, 'error'));
-                        }
-                    });
-                } else if (btn.classList.contains('view-order-btn')) {
-                    // Procura no tracking ou no db
-                    const order = trackingOrders.find(o => o.id === id) || dbOrders.find(o => o.id === id);
-                    if (!order) return;
-
-                    document.getElementById('order-form-doc-id').value = order.id;
-                    document.getElementById('order-pv').value = order.pv;
-                    document.getElementById('order-cliente').value = order.cliente;
-                    document.getElementById('order-data-entrega').value = order.dataEntrega;
-                    document.getElementById('order-local').value = order.local || '';
-                    document.getElementById('order-prioridade').value = order.prioridade;
-                    
-                    itemsContainer.innerHTML = '';
-                    (order.items || []).forEach(item => addOrderItem(item));
-                    calculateTotal();
-
-                    // Muda para a aba de lançamento para editar
-                    const entryTab = document.querySelector('.order-nav-card[data-section="orders-entry-section"]');
-                    if (entryTab) entryTab.click();
-                    showToast('Pedido carregado para edição.', 'info');
-                }
-            });
-
-            trackingTableBody.addEventListener('click', (e) => {
-                const btn = e.target.closest('.update-tracking-btn');
-                if (!btn) return;
-                const order = trackingOrders.find(o => o.id === btn.dataset.id);
-                
-                document.getElementById('trackingOrderId').value = order.id;
-                content.innerHTML = '';
-
-                order.items.forEach((item, index) => {
-                    const itemStatus = (order.logistics.itemsStatus || []).find(s => s.itemCode === item.itemCode) || {};
-                    const esterilizacao = itemStatus.esterilizacao || {};
-                    const isEsterilizacao = itemStatus.status === 'Esterilização';
-                    
-                    const itemDiv = document.createElement('div');
-                    itemDiv.className = 'p-4 border rounded-lg';
-                    itemDiv.innerHTML = `
-                        <h5 class="font-bold">${item.itemCode} (Qtd: ${item.qty})</h5>
-                        <div class="grid grid-cols-2 gap-4 mt-2">
-                            <div class="input-group">
-                                <label>Status do Item</label>
-                                <select class="item-logistics-status" data-index="${index}">
-                                    <option ${itemStatus.status === 'Em Estoque' ? 'selected' : ''}>Em Estoque</option>
-                                    <option ${itemStatus.status === 'Em Produção' ? 'selected' : ''}>Em Produção</option>
-                                    <option ${itemStatus.status === 'Esterilização' ? 'selected' : ''}>Esterilização</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="esterilizacao-fields mt-4 grid grid-cols-2 gap-4" style="display: ${isEsterilizacao ? 'grid' : 'none'}">
-                            <div class="input-group"><label>Envio Esterilização</label><input type="date" value="${esterilizacao.envio || ''}"></div>
-                            <div class="input-group"><label>Retorno Previsto</label><input type="date" value="${esterilizacao.retornoPrevisto || ''}"></div>
-                            <div class="input-group"><label>Início Repack</label><input type="date" value="${esterilizacao.inicioRepack || ''}"></div>
-                            <div class="input-group"><label>Fim Repack</label><input type="date" value="${esterilizacao.fimRepack || ''}"></div>
-                        </div>
-                    `;
-                    content.appendChild(itemDiv);
-                });
-
-                document.getElementById('tracking-expedido-checkbox').checked = order.logistics.pedidoExpedido || false;
-                document.getElementById('tracking-entregue-checkbox').checked = order.logistics.pedidoEntregue || false;
-
-                trackingModal.classList.add('show');
-            });
-
-            content.addEventListener('change', (e) => {
-                if (e.target.classList.contains('item-logistics-status')) {
-                    const fields = e.target.closest('.p-4').querySelector('.esterilizacao-fields');
-                    fields.style.display = e.target.value === 'Esterilização' ? 'grid' : 'none';
-                }
-            });
-            if (content) {
-                content.addEventListener('change', (e) => {
-                    if (e.target.classList.contains('item-logistics-status')) {
-                        const fields = e.target.closest('.p-4').querySelector('.esterilizacao-fields');
-                        fields.style.display = e.target.value === 'Esterilização' ? 'grid' : 'none';
-                    }
-                });
-            }
-
-            if (trackingForm) {
-                trackingForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const orderId = document.getElementById('trackingOrderId').value;
-                    
-                    const updates = {
-                        'logistics.pedidoExpedido': document.getElementById('tracking-expedido-checkbox').checked,
-                        'logistics.pedidoEntregue': document.getElementById('tracking-entregue-checkbox').checked
-                    };
-
-                    updateDoc(doc(getOrdersCollection(), orderId), updates).then(() => {
-                        trackingModal.classList.remove('show');
-                        showToast('Status logístico atualizado!', 'success');
-                    });
-                });
-            }
-
-            // 10. Funções de Banco de Dados e Paginação
-            async function fetchDbOrders(direction = 'first') {
-                const clientFilter = dbClientFilter.value.trim();
-                let q = query(getOrdersCollection(), orderBy('dataPedido', 'desc'), limit(pageSize));
-
-                if (clientFilter) {
-                    // Nota: Firestore requer índice composto para where + orderBy
-                    // Se falhar, verifique o console para o link de criação do índice
-                    q = query(getOrdersCollection(), where('cliente', '==', clientFilter), orderBy('dataPedido', 'desc'), limit(pageSize));
-                }
-
-                if (direction === 'next' && lastVisibleDoc) {
-                    q = query(q, startAfter(lastVisibleDoc));
-                    currentPage++;
-                } else if (direction === 'prev' && firstVisibleDoc) {
-                    // Paginação para trás no Firestore é complexa sem manter histórico completo
-                    // Simplificação: Recarregar primeira página ou usar endBefore se tivermos a ref
-                    // Para este exemplo, vamos simplificar voltando ao início se for 'prev' de forma simples
-                    // ou implementando endBefore com limitToLast
-                    q = query(getOrdersCollection(), orderBy('dataPedido', 'desc'), endBefore(firstVisibleDoc), limitToLast(pageSize));
-                    if (clientFilter) {
-                         q = query(getOrdersCollection(), where('cliente', '==', clientFilter), orderBy('dataPedido', 'desc'), endBefore(firstVisibleDoc), limitToLast(pageSize));
-                    }
-                    currentPage = Math.max(1, currentPage - 1);
-                } else if (direction === 'first') {
-                    currentPage = 1;
-                }
-
-                try {
-                    const snapshot = await getDocs(q);
-                    
-                    if (!snapshot.empty) {
-                        dbOrders = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                        firstVisibleDoc = snapshot.docs[0];
-                        lastVisibleDoc = snapshot.docs[snapshot.docs.length - 1];
-                    } else {
-                        if (direction === 'first') dbOrders = [];
-                        // Se tentou ir para próxima e não tem, mantém a atual (tratamento básico)
-                    }
-
-                    renderOrdersDbTable();
-                    
-                    // Atualiza controles
-                    dbPageInfo.textContent = `Página ${currentPage}`;
-                    dbPrevBtn.disabled = currentPage === 1;
-                    dbNextBtn.disabled = snapshot.empty || snapshot.docs.length < pageSize;
-
-                } catch (error) {
-                    console.error("Erro ao buscar pedidos:", error);
-                    showToast("Erro ao buscar pedidos. Verifique conexão ou índices.", "error");
-                }
-            }
-
-            dbSearchBtn.addEventListener('click', () => fetchDbOrders('first'));
-            dbNextBtn.addEventListener('click', () => fetchDbOrders('next'));
-            dbPrevBtn.addEventListener('click', () => fetchDbOrders('prev'));
-
-            // 11. Dashboard Logic
-            
-            function initOrdersDatepicker() {
-                ordersDatepicker = new Litepicker({
-                    element: ordersDashboardDateRange,
-                    singleMode: false,
-                    format: 'DD/MM/YYYY',
-                    lang: 'pt-BR',
-                    setup: (picker) => {
-                        picker.on('selected', (date1, date2) => {
-                            fetchOrdersDashboardData();
-                        });
-                    }
-                });
-                // Default: Este mês
-                const today = new Date();
-                const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
-                ordersDatepicker.setDateRange(firstDay, today);
-            }
-
-            const setupRealtimeTracking = () => {
-                // Apenas para a tabela de tracking (últimos 100 ativos)
-                const q = query(getOrdersCollection(), orderBy('dataPedido', 'desc'), limit(100));
-                
-                onSnapshot(q, (snapshot) => {
-                    const allFetched = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                    trackingOrders = allFetched.filter(o => !o.logistics?.pedidoEntregue);
-                    renderTrackingTable();
-                });
-            };
-
-            async function fetchOrdersDashboardData() {
-                if (!ordersDatepicker) return;
-
-                const startDate = ordersDatepicker.getStartDate().toJSDate().toISOString().split('T')[0];
-                const endDate = ordersDatepicker.getEndDate().toJSDate().toISOString().split('T')[0] + 'T23:59:59.999Z';
-
-                // Query básica por data (requer índice composto se usar filtros complexos, então faremos filtro em memória para simplificar este exemplo)
-                // Em produção, usar: where('dataPedido', '>=', startDate), where('dataPedido', '<=', endDate)
-                const q = query(getOrdersCollection(), where('dataPedido', '>=', startDate), where('dataPedido', '<=', endDate));
-                
-                try {
-                    const snapshot = await getDocs(q);
-                    dashboardOrdersData = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-                    triggerDashboardUpdate();
-                } catch (error) {
-                    console.error("Erro ao carregar dashboard:", error);
-                    showToast("Erro ao carregar dados do dashboard.", "error");
-                }
-            }
-
-            function triggerDashboardUpdate() {
-                if (dashboardOrdersData.length === 0) return;
-                // Envia dados para o Web Worker
-                dashboardWorker.postMessage({ 
-                    orders: dashboardOrdersData, 
-                    filterClient: activeClientFilter 
-                });
-            }
-
-            // Recebe dados processados do Worker
-            dashboardWorker.onmessage = function(e) {
-                const { kpis, charts } = e.data;
-                renderDashboardUI(kpis, charts);
-            };
-
-            const renderDashboardUI = (kpis, chartsData) => {
-                const { total, totalValue, ticketMedio, atrasados, entregues, aEnviar, emTransito, valorCarteira, avgLeadTime, otif } = kpis;
-                const { salesByDate, salesByClient, salesByLoc, agingBuckets } = chartsData;
-
-                // Previsão de Faturamento (Média Diária * Dias no Mês)
-                const today = new Date();
-                // Evita divisão por zero se for dia 1 de madrugada ou erro de data
-                const currentDay = Math.max(1, today.getDate());
-                const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-                // Se o filtro for o mês atual, faz projeção. Se for passado, usa o real.
-                const isCurrentMonth = ordersDatepicker.getEndDate().toJSDate().getMonth() === today.getMonth();
-                const forecast = isCurrentMonth ? (totalValue / currentDay) * lastDayOfMonth : totalValue;
-                
-                document.getElementById('kpi-total-pedidos').textContent = total;
-                document.getElementById('kpi-valor-total').textContent = totalValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                document.getElementById('kpi-ticket-medio').textContent = ticketMedio.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                
-                // Atualiza Ticket Médio e adiciona Lead Time no tooltip ou subtítulo se possível, 
-                // mas aqui vamos manter o Ticket Médio e formatar melhor
-                document.getElementById('kpi-ticket-medio').innerHTML = `${ticketMedio.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} <span class="text-xs text-gray-500 block">Lead Time: ${avgLeadTime} dias</span>`;
-                document.getElementById('kpi-pedidos-atraso').textContent = atrasados;
-                document.getElementById('kpi-otif').textContent = otif.toFixed(1) + '%';
-                document.getElementById('kpi-forecast').textContent = forecast.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                document.getElementById('kpi-carteira').textContent = valorCarteira.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                document.getElementById('kpi-entregues-qtd').textContent = entregues;
-
-                // --- Renderização dos Gráficos ---
-                const isDark = document.body.classList.contains('dark');
-                const textColor = isDark ? '#e2e8f0' : '#334155';
-
-                const sortedDates = Object.keys(salesByDate).sort();
-                
-                const ctxTrend = document.getElementById('ordersTrendChart').getContext('2d');
-                if (ordersTrendChart) ordersTrendChart.destroy();
-
-                const dailyGoal = 10000; // Meta diária de exemplo (R$ 10k)
-
-                ordersTrendChart = new Chart(ctxTrend, {
-                    type: 'line',
-                    data: {
-                        labels: sortedDates.map(d => new Date(d).toLocaleDateString('pt-BR')),
-                        datasets: [{
-                            label: 'Vendas Diárias (R$)',
-                            data: sortedDates.map(d => salesByDate[d]),
-                            borderColor: '#3b82f6',
-                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                            fill: true,
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: { beginAtZero: true, ticks: { color: textColor } },
-                            x: { ticks: { color: textColor } }
-                        },
-                        plugins: {
-                            legend: { display: false },
-                            annotation: {
-                                annotations: {
-                                    goalLine: {
-                                        type: 'line',
-                                        yMin: dailyGoal,
-                                        yMax: dailyGoal,
-                                        borderColor: '#ef4444',
-                                        borderWidth: 2,
-                                        borderDash: [6, 6],
-                                        label: {
-                                            enabled: true,
-                                            content: 'Meta Diária (R$ 10k)',
-                                            position: 'end',
-                                            backgroundColor: 'rgba(239, 68, 68, 0.8)',
-                                            color: 'white'
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-
-                // 1. Gráfico de Rosca (Status)
-                const ctxStatus = document.getElementById('ordersStatusChart').getContext('2d');
-                if (ordersStatusChart) ordersStatusChart.destroy();
-                
-                ordersStatusChart = new Chart(ctxStatus, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Entregue', 'Em Trânsito', 'A Enviar', 'Atrasado'],
-                        datasets: [{
-                            data: [entregues, emTransito, aEnviar, atrasados],
-                            backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#ef4444'],
-                            borderWidth: 0
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { position: 'bottom', labels: { color: textColor } } }
-                    }
-                });
-
-                // 2. Gráfico de Barras (Top Clientes)
-                const topClients = Object.entries(salesByClient)
-                    .sort(([,a], [,b]) => b - a)
-                    .slice(0, 10);
-
-                const ctxClient = document.getElementById('ordersClientChart').getContext('2d');
-                if (ordersClientChart) ordersClientChart.destroy();
-
-                ordersClientChart = new Chart(ctxClient, {
-                    type: 'bar',
-                    data: {
-                        labels: topClients.map(([name]) => name),
-                        datasets: [{
-                            label: 'Volume de Compras (R$)',
-                            data: topClients.map(([,val]) => val),
-                            backgroundColor: '#6366f1',
-                            // Destaque visual se houver filtro ativo
-                            borderColor: topClients.map(([name]) => name === activeClientFilter ? '#fbbf24' : 'transparent'),
-                            borderWidth: topClients.map(([name]) => name === activeClientFilter ? 3 : 0)
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        onClick: (evt, elements) => {
-                            if (elements.length > 0) {
-                                const index = elements[0].index;
-                                const clientName = topClients[index][0];
-                                // Toggle Filter
-                                activeClientFilter = activeClientFilter === clientName ? null : clientName;
-                                showToast(activeClientFilter ? `Filtrando por: ${activeClientFilter}` : 'Filtro de cliente removido', 'info');
-                                triggerDashboardUpdate();
-                            }
-                        },
-                        scales: {
-                            y: { ticks: { color: textColor } },
-                            x: { ticks: { color: textColor, display: false } } // Oculta labels x se forem muitos
-                        },
-                        plugins: { 
-                            legend: { display: false },
-                            tooltip: { callbacks: { label: (ctx) => `R$ ${ctx.raw.toLocaleString('pt-BR')}` } }
-                        }
-                    }
-                });
-                
-                // 3. Gráfico de Localização (Mapa de Calor simplificado em Barras Horizontais)
-                const topLocs = Object.entries(salesByLoc).sort(([,a], [,b]) => b - a).slice(0, 10);
-
-                const ctxLoc = document.getElementById('ordersLocationChart').getContext('2d');
-                if (ordersLocationChart) ordersLocationChart.destroy();
-
-                ordersLocationChart = new Chart(ctxLoc, {
-                    type: 'bar',
-                    data: {
-                        labels: topLocs.map(([name]) => name),
-                        datasets: [{
-                            label: 'Vendas por Local (R$)',
-                            data: topLocs.map(([,val]) => val),
-                            backgroundColor: '#f59e0b',
-                        }]
-                    },
-                    options: {
-                        indexAxis: 'y',
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            x: { ticks: { color: textColor } },
-                            y: { ticks: { color: textColor } }
-                        },
-                        plugins: { legend: { display: false } }
-                    }
-                });
-
-                // 4. Aging de Pedidos (Apenas em aberto)
-                const ctxAging = document.getElementById('ordersAgingChart').getContext('2d');
-                if (ordersAgingChart) ordersAgingChart.destroy();
-
-                ordersAgingChart = new Chart(ctxAging, {
-                    type: 'bar',
-                    data: {
-                        labels: Object.keys(agingBuckets),
-                        datasets: [{
-                            label: 'Pedidos em Aberto',
-                            data: Object.values(agingBuckets),
-                            backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: { beginAtZero: true, ticks: { color: textColor } },
-                            x: { ticks: { color: textColor } }
-                        },
-                        plugins: { legend: { display: false } }
-                    }
-                });
-
-                // Renderiza tabela inicial (Atrasados por padrão)
-                // Não renderiza tabela automaticamente para não poluir, espera clique
-                // renderDrillDownTable(currentDrillDownFilter);
-            };
-
-            // Drill-down Logic
-            const openDrillDownModal = (filterType) => {
-                currentDrillDownFilter = filterType;
-                // Reutiliza o modal genérico de drilldown
-                const modalTitle = document.getElementById('drilldownTitle');
-                const container = document.getElementById('drilldownTableContainer');
-                let filteredOrders = [];
-                let title = '';
-
-                switch(filterType) {
-                    case 'atrasado':
-                        filteredOrders = dashboardOrdersData.filter(o => calculateOrderStatus(o) === 'Atrasado');
-                        title = 'Pedidos em Atraso';
-                        break;
-                    case 'entregue':
-                        filteredOrders = dashboardOrdersData.filter(o => calculateOrderStatus(o) === 'Entregue');
-                        title = 'Pedidos Entregues';
-                        break;
-                    case 'aberto':
-                        filteredOrders = dashboardOrdersData.filter(o => calculateOrderStatus(o) !== 'Entregue');
-                        title = 'Carteira de Pedidos (Em Aberto)';
-                        break;
-                    case 'faturamento':
-                    case 'total':
-                        filteredOrders = dashboardOrdersData;
-                        title = 'Todos os Pedidos do Período';
-                        break;
-                }
-
-                // Aplica filtro de cliente se ativo
-                if (activeClientFilter) {
-                    filteredOrders = filteredOrders.filter(o => o.cliente === activeClientFilter);
-                    title += ` (${activeClientFilter})`;
-                }
-
-                modalTitle.textContent = title;
-                
-                if (filteredOrders.length === 0) {
-                    container.innerHTML = '<p class="text-center text-gray-500 p-4">Nenhum pedido encontrado nesta categoria.</p>';
-                } else {
-                    // Ordena por data de entrega (mais urgente primeiro)
-                    filteredOrders.sort((a, b) => a.dataEntrega.localeCompare(b.dataEntrega));
-                    const top50 = filteredOrders.slice(0, 50); // Limita a 50 para performance
-
-                    let html = `<table class="w-full text-sm text-left text-gray-500">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                            <tr>
-                                <th class="px-4 py-3">Cliente</th>
-                                <th class="px-4 py-3">PV</th>
-                                <th class="px-4 py-3">Status</th>
-                                <th class="px-4 py-3">Data Entrega</th>
-                                <th class="px-4 py-3 text-right">Valor</th>
-                                <th class="px-4 py-3 text-center">Ação Rápida</th>
-                            </tr>
-                        </thead><tbody>`;
-                    
-                    top50.forEach(o => {
-                        const deliveryDate = new Date(o.dataEntrega);
-                        const status = calculateOrderStatus(o);
-                        const statusClass = status === 'Atrasado' ? 'text-red-600 font-bold' : (status === 'Entregue' ? 'text-green-600' : 'text-blue-600');
-                        
-                        html += `<tr class="bg-white border-b hover:bg-gray-50">
-                            <td class="px-4 py-3 font-medium text-gray-900">${o.cliente}</td>
-                            <td class="px-4 py-3">${o.pv}</td>
-                            <td class="px-4 py-3 ${statusClass}">${status}</td>
-                            <td class="px-4 py-3">${deliveryDate.toLocaleDateString('pt-BR')}</td>
-                            <td class="px-4 py-3 text-right">${(o.valorTotal || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-                            <td class="px-4 py-3 text-center">
-                                <button class="text-blue-600 hover:text-blue-800" onclick="alert('Simulação: Email de cobrança enviado para ${o.cliente}!')"><i class="fas fa-envelope"></i></button>
-                            </td>
-                        </tr>`;
-                    });
-                    html += '</tbody></table>';
-                    container.innerHTML = html;
-                }
-                document.getElementById('drilldownModal').classList.add('show');
-            };
-
-            // Export Logic
-            document.getElementById('export-orders-drilldown-btn').addEventListener('click', () => {
-                let filteredOrders = [];
-                switch(currentDrillDownFilter) {
-                    case 'atrasado': filteredOrders = dashboardOrdersData.filter(o => calculateOrderStatus(o) === 'Atrasado'); break;
-                    case 'entregue': filteredOrders = dashboardOrdersData.filter(o => calculateOrderStatus(o) === 'Entregue'); break;
-                    case 'aberto': filteredOrders = dashboardOrdersData.filter(o => calculateOrderStatus(o) !== 'Entregue'); break;
-                    case 'faturamento':
-                    case 'total': filteredOrders = dashboardOrdersData; break;
-                }
-
-                if (filteredOrders.length === 0) {
-                    showToast("Sem dados para exportar.", "error");
-                    return;
-                }
-
-                const dataToExport = filteredOrders.map(o => ({
-                    Cliente: o.cliente,
-                    PV: o.pv,
-                    Status: calculateOrderStatus(o),
-                    'Data Entrega': new Date(o.dataEntrega).toLocaleDateString('pt-BR'),
-                    'Valor': o.valorTotal || 0
-                }));
-
-                const ws = XLSX.utils.json_to_sheet(dataToExport);
-                const wb = XLSX.utils.book_new();
-                XLSX.utils.book_append_sheet(wb, ws, "Pedidos");
-                XLSX.writeFile(wb, `pedidos_${currentDrillDownFilter}.xlsx`);
-            });
-
-            // Event Listeners para Drill-down
-            document.getElementById('orders-dashboard-section').addEventListener('click', (e) => {
-                const card = e.target.closest('.kpi-card');
-                if (card && card.dataset.filter) {
-                    openDrillDownModal(card.dataset.filter);
-                    // Feedback visual simples
-                    document.querySelectorAll('.kpi-card').forEach(c => c.classList.remove('ring-2', 'ring-blue-500'));
-                    card.classList.add('ring-2', 'ring-blue-500');
-                }
-            });
-
-            // 9. Renderização Inicial
-            if (itemsContainer.children.length === 0) addOrderItem();
-            setupRealtimeTracking();
-
-            // Função de atualização exposta para o showPage
-            state.refreshOrdersView = () => {
-                const activeCard = document.querySelector('.order-nav-card.active-order-nav-card');
-                if (activeCard) {
-                    const sectionId = activeCard.dataset.section;
-                    if (sectionId === 'orders-db-section') {
-                        fetchDbOrders();
-                    } else if (sectionId === 'orders-dashboard-section') {
-                        if (!ordersDatepicker) initOrdersDatepicker();
-                        fetchOrdersDashboardData();
-                    }
-                }
-            };
         }
 
         //======================================================================
@@ -5770,7 +4951,7 @@
             console.log("🔍 Caminho de lançamentos:", `artifacts/${appId}/public/data/entries`);
             
             const productsCollection = collection(db, `artifacts/${appId}/public/data/products`);
-            const unsubProducts = onSnapshot(productsCollection, (snapshot) => {
+            onSnapshot(productsCollection, (snapshot) => {
                 console.log("📊 Produtos carregados:", snapshot.size);
                 state.products = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => a.code.localeCompare(b.code));
                 window.dispatchEvent(new CustomEvent('productsUpdated'));
@@ -5778,7 +4959,6 @@
                 console.error("Erro ao buscar produtos:", error);
                 showToast('Não foi possível carregar os produtos.', 'error');
             });
-            state.unsubscribes.push(unsubProducts);
 
             const entriesCollection = collection(db, `artifacts/${appId}/public/data/entries`);
             const unsubEntries = onSnapshot(entriesCollection, (snapshot) => {
@@ -5870,7 +5050,9 @@
                 try {
                     await signInWithEmailAndPassword(auth, email, password);
                 } catch (error) {
-                    errorMessage.textContent = 'Email ou senha inválidos.';
+                    console.error("Erro no login:", error.code, error.message);
+                    // Mostra mensagens mais específicas se possível, ou a genérica
+                    errorMessage.textContent = error.code === 'auth/operation-not-allowed' ? 'Login por email/senha não habilitado no Firebase.' : 'Email ou senha inválidos.';
                     errorMessage.classList.remove('hidden');
                 }
             });
@@ -5938,36 +5120,43 @@
             }, 3000); // 3 segundos de timeout
 
             onAuthStateChanged(auth, async (user) => {
-                // Se o auth respondeu, cancelamos o timeout de segurança
-                if (!authResolved) {
-                    authResolved = true;
-                    clearTimeout(authTimeout);
-                }
-
+                // Atualiza flag e cancela timeout, mas permite execução sempre (login/logout)
+                authResolved = true;
+                clearTimeout(authTimeout);
+                    
                 console.log("Auth state changed - user:", user ? user.email : "nenhum");
-                
+                    
                 if (user) {
-                    try {
-                        // Usuário está logado
-                        state.userId = user.uid;
-                        document.getElementById('userIdDisplay').textContent = user.email;
-                        
-                        // ATRIBUI PERMISSÃO DE ADMIN (Todos os usuários logados recebem acesso total)
-                        document.body.classList.add('role-admin');
+                        try {
+                            // Usuário está logado
+                            state.userId = user.uid;
+                            document.getElementById('userIdDisplay').textContent = user.email;
+                            
+                            // SEGURANÇA: CONTROLE DE ACESSO (Listagem de Admins)
+                            const adminEmails = [
+                                'pcpflexmaker@gmail.com',
+                                'admin@flexmaker.com.br'
+                            ].map(email => email.toLowerCase());
 
-                        // Mostra a aplicação e esconde o login
-                        appContainer.style.display = 'flex';
-                        loginPage.style.display = 'none';
+                            document.body.classList.remove('role-admin', 'role-viewer');
+                            
+                            if (user.email && adminEmails.includes(user.email.toLowerCase())) {
+                                document.body.classList.add('role-admin');
+                                console.log("Acesso Admin concedido para: " + user.email);
+                            } else {
+                                document.body.classList.add('role-viewer'); // Usuário comum apenas visualiza
+                            }
 
-                        // CORREÇÃO: Verifica se o app já foi inicializado para evitar re-execução desnecessária,
-                        // mas permite a execução inicial após o login manual.
-                        if (!state.appInitialized) {
-                            state.appInitialized = true;
+                            // Mostra a aplicação e esconde o login
+                            appContainer.style.display = 'flex';
+                            loginPage.style.display = 'none';
+
                             setupNavigation();
                             setupThemeModule();
                             initializeGlobalData(db);
 
                             document.getElementById('logout-btn').onclick = async () => {
+                                // Cancela listeners para evitar erros de permissão
                                 if (state.unsubscribes) {
                                     state.unsubscribes.forEach(unsub => unsub());
                                     state.unsubscribes = [];
@@ -5977,18 +5166,16 @@
                             };
 
                             showPage('dashboard-view');
+                        } catch (error) {
+                            console.error("Erro ao inicializar app:", error);
                         }
-                    } catch (error) {
-                        console.error("Erro ao inicializar app:", error);
+                    } else {
+                        // Usuário não está logado
+                        document.body.classList.remove('role-admin');
+                        appContainer.style.display = 'none';
+                        loginPage.style.display = 'block';
                     }
-                } else {
-                    // Usuário não está logado
-                    document.body.classList.remove('role-admin');
-                    appContainer.style.display = 'none';
-                    loginPage.style.display = 'block';
-                    state.appInitialized = false; // Reseta estado para permitir login futuro
-                }
-                hideLoadingOverlay();
+                    hideLoadingOverlay();
             });
         }
 
